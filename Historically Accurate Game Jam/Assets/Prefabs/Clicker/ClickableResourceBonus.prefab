@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176395082403746212, guid: 3e53cf8fa5c8b164a9a0bf23968d045e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1176395082403746212, guid: 3e53cf8fa5c8b164a9a0bf23968d045e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: deleteOnClicked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1176395082403746214, guid: 3e53cf8fa5c8b164a9a0bf23968d045e, type: 3}
+      propertyPath: resourceSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: f35ab618686ad4342bba08255437f665, type: 2}
     - target: {fileID: 1176395082403746215, guid: 3e53cf8fa5c8b164a9a0bf23968d045e, type: 3}
       propertyPath: m_Color.b
       value: 0

@@ -7,8 +7,11 @@ namespace DefaultNamespace
   [RequireComponent(typeof(RectTransform), typeof(TMP_Text))]
   public class ResourcePopupUI : MonoBehaviour
   {
-    [SerializeField] private TMP_Text      text;
-    [SerializeField] private int           animationTime;
+    [Header("References")]
+    [SerializeField] private TMP_Text text;
+
+    [Header("Settings")]
+    [SerializeField] private int animationTime;
 
     private void Awake()
     {

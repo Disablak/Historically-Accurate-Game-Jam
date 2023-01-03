@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,17 +9,38 @@ namespace DefaultNamespace
 {
   public class ClickerUI : MonoBehaviour
   {
-    [SerializeField] private TMP_Text resourceText;
+    [Header("References")]
+    [SerializeField] private TMP_Text coalText;
+    [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text diamondText;
     [SerializeField] private TimerUI  timerUI;
     [SerializeField] private TMP_Text endgameText;
-    [SerializeField] private Object   resourcePopupPrefab;
+    [SerializeField] private Object   coalPopupPrefab;
+    [SerializeField] private Object   goldPopupPrefab;
     [SerializeField] private Object   diamondPopupPrefab;
 
-    public void resourceMined(int count, int total)
+    public void resourceMined(ResourceType resource_type, int count, int total)
     {
-      resourceText.SetText(total.ToString());
-      ResourcePopupUI resource_popup_ui = Instantiate(resourcePopupPrefab, Input.mousePosition, Quaternion.identity).GetComponent<ResourcePopupUI>();
+      ResourcePopupUI resource_popup_ui = null;
+      switch (resource_type)
+      {
+        case ResourceType.COAL:
+          coalText.SetText(total.ToString());
+          resource_popup_ui = Instantiate(coalPopupPrefab, Input.mousePosition, Quaternion.identity).GetComponent<ResourcePopupUI>();
+          break;
+        case ResourceType.GOLD:
+          goldText.SetText(total.ToString());
+          resource_popup_ui = Instantiate(goldPopupPrefab, Input.mousePosition, Quaternion.identity).GetComponent<ResourcePopupUI>();
+          break;
+        case ResourceType.DIAMOND:
+          diamondText.SetText(total.ToString());
+          resource_popup_ui = Instantiate(diamondPopupPrefab, Input.mousePosition, Quaternion.identity).GetComponent<ResourcePopupUI>();
+          break;
+      }
+
+      if (!resource_popup_ui)
+        return;
+
       resource_popup_ui.gameObject.transform.SetParent(gameObject.transform, true);
       resource_popup_ui.fade(count);
     }
