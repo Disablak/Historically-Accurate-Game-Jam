@@ -9,6 +9,7 @@ namespace DefaultNamespace
     public class FlyingState : MonoBehaviour
     {
         public RailRidingState RailRidingState;
+        public RailCrushState RailCrushState;
         public Vector3 MovementDirection;
         public Vector3 GravityDirection;
         public Vector3 StartedFlyingFromPoint;
@@ -16,6 +17,11 @@ namespace DefaultNamespace
         public List<SplineContainer> Rails;
         public float DistanceToRailToBeAttachedTo = 0.1f;
         public float DistanceFromStartToBeAllowedToAttach = 0.1f;
+        public float PlayerAltitudeToBeConsideredCrushed = -1;
+
+
+        public float distanceToSplinePointThisFrame;
+        public Vector3 directionToSplinePointThisFrame;
 
 
         public void Initialize(Vector3 PlayerPosition, Vector3 PlayerDirection)
@@ -44,13 +50,11 @@ namespace DefaultNamespace
                     , SplineUtility.PickResolutionMax
                     , 10);
 
-                // Debug.DrawLine(comparisonLocalPoint, resultLocalPoint);
-
                 Vector3 resultWorldPoint = splineContainer.transform.TransformPoint(resultLocalPoint);
                 float distanceFromStartToEnd = (StartedFlyingFromPoint - resultWorldPoint).magnitude;
 
-                // Debug.Log("distanceFromStartToEnd: " + distanceFromStartToEnd + " distance:" + distanceToSplinePoint +
-                //           " normalizedDistance: " + normalizedDistance);
+                directionToSplinePointThisFrame = transform.position - resultWorldPoint;
+                distanceToSplinePointThisFrame = distanceToSplinePoint;
 
                 if (distanceToSplinePoint <= DistanceToRailToBeAttachedTo
                     && distanceFromStartToEnd >= DistanceFromStartToBeAllowedToAttach)
@@ -60,6 +64,12 @@ namespace DefaultNamespace
                     return;
                 }
             }
+
+            if (transform.position.y >= PlayerAltitudeToBeConsideredCrushed)
+                return;
+
+            enabled = false;
+            RailCrushState.Initialize();
         }
     }
 }

@@ -17,11 +17,6 @@ namespace DefaultNamespace
         public float currentPlayerSpeed;
 
 
-        private void Start()
-        {
-            playerOnSplineDistance = NormalizedToDistance(0.5f);
-        }
-
         public void Initialize(SplineContainer spline, float normalizedDistanceOnSpline)
         {
             this.spline = spline;
@@ -42,15 +37,20 @@ namespace DefaultNamespace
             playerOnSplineDistance += currentPlayerSpeed;
 
             if (Input.GetKeyDown(KeyCode.Space))
+                GotoFlyingState(AdditionalJumpDirection * Time.deltaTime);
+            else if ((playerOnSplinePositionNormalized is > 1.0f or < 0.0f))
+                GotoFlyingState(Vector3.zero);
+
+            transform.position = pointOnSpline;
+
+            void GotoFlyingState(Vector3 additionalJumpingDirection)
             {
                 var playerDirection = currentPlayerSpeed * splineTangent.normalized;
-                playerDirection += AdditionalJumpDirection * Time.deltaTime;
+                playerDirection += additionalJumpingDirection;
 
                 FlyingState.Initialize(pointOnSpline, playerDirection);
                 enabled = false;
             }
-
-            transform.position = pointOnSpline;
         }
 
         private float NormalizedToDistance(float normalizedValue)
