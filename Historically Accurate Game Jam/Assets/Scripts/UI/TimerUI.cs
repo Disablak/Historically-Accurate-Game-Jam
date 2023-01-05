@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace UI
 {
   [RequireComponent(typeof(RectTransform), typeof(TMP_Text))]
   public class TimerUI : MonoBehaviour

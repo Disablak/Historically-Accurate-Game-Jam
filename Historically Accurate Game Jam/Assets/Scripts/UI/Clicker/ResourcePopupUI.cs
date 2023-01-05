@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace UI
 {
   [RequireComponent(typeof(RectTransform), typeof(TMP_Text))]
   public class ResourcePopupUI : MonoBehaviour
@@ -23,7 +23,7 @@ namespace DefaultNamespace
       text.SetText($"+{value.ToString()}");
       gameObject.SetActive(true);
       LeanTween.value(gameObject, setTextAlpha, text.alpha, 0.0f, animationTime).setDestroyOnComplete( true );
-      LeanTween.moveLocalY(gameObject, gameObject.transform.localPosition.y + 300f, animationTime);
+      LeanTween.moveY(gameObject, transform.position.y + 300f, animationTime);
     }
 
     private void setTextAlpha(float value)

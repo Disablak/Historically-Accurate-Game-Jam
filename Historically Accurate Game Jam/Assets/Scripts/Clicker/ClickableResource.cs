@@ -13,35 +13,29 @@ namespace Clicker
     [SerializeField] private Tween tweener;
 
     [Header("Settings")]
-    [SerializeField] public ClickableResourceScriptableObject resourceSettings;
     [SerializeField] private bool                             deleteOnClicked;
+    [SerializeField] private bool                             isBonus;
     [SerializeField] private long                             lifetime;
-
-    private Dictionary<ResourceType, ResourceValueChance> resourceValueChanceSettings;
 
     public Collider2D collider2D;
 
-    public delegate void ResourceClickedHandler(ClickableResourceScriptableObject settings);
+    public delegate void ResourceClickedHandler(bool is_bonus);
     public event ResourceClickedHandler onClicked;
 
 
     private void Awake()
     {
-      foreach (ResourceType resource_type in ResourceTypeHelper.allValues)
-        resourceValueChanceSettings[resource_type] = resourceSettings.getResourceValueChanceByType(resource_type);
-
       if (lifetime > 0)
         StartCoroutine(destroyCoroutine());
     }
 
     private void OnMouseDown()
     {
-      onClicked?.Invoke(resourceSettings);
+      onClicked?.Invoke(isBonus);
 
       if (!deleteOnClicked)
         return;
 
-      Debug.Log("Bonus clicked");
       Destroy(gameObject);
     }
 

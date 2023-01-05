@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using UnityEngine;
 
 namespace Clicker
@@ -8,6 +9,14 @@ namespace Clicker
   {
     [SerializeField] public int         amount;
     [SerializeField] public RandomRange randomRange;
+
+    public ResourceValueChance(){}
+
+    public ResourceValueChance(ResourceValueChance other)
+    {
+      amount = other.amount;
+      randomRange = other.randomRange;
+    }
   }
 
   [Serializable]

@@ -17,10 +17,15 @@ MonoBehaviour:
     randomRange:
       minInclusive: 0
       maxExclusive: 70
-  gold:
+  iron:
     amount: 5
     randomRange:
       minInclusive: 70
+      maxExclusive: 85
+  gold:
+    amount: 5
+    randomRange:
+      minInclusive: 85
       maxExclusive: 90
   diamond:
     amount: 1

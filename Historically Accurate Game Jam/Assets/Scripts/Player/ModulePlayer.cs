@@ -6,6 +6,8 @@ namespace Player
 {
   public class ModulePlayer
   {
+    public Core.Player player { get; private set; } = new Core.Player();
+
     public Dictionary<ResourceType, int> balance { get; private set; } = new Dictionary<ResourceType, int>();
 
 

@@ -8,6 +8,7 @@ namespace Core
     NONE,
 
     COAL,
+    IRON,
     GOLD,
     DIAMOND
   }
