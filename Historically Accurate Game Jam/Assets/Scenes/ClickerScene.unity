@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &1130136613 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2706179302704068081, guid: 4c92fd0682fe05046bf5a700992984c2, type: 3}
-  m_PrefabInstance: {fileID: 2706179301684556244}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1392123353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,17 +464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6101e6674b1f48c499ee75f9b333f272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1647082968 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2706179302184995852, guid: 4c92fd0682fe05046bf5a700992984c2, type: 3}
-  m_PrefabInstance: {fileID: 2706179301684556244}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1656107980
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1747547963143441715, guid: 72b7256da2cb5984dbac97b3940b225e, type: 3}
       propertyPath: cartCapacity
-      value: 535135
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1747547963143441715, guid: 72b7256da2cb5984dbac97b3940b225e, type: 3}
       propertyPath: bonusResourceValueChanceSettings
@@ -909,14 +887,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1838543283}
     m_Modifications:
-    - target: {fileID: 1030382183163191841, guid: 4c92fd0682fe05046bf5a700992984c2, type: 3}
-      propertyPath: progressBar
-      value: 
-      objectReference: {fileID: 1647082968}
-    - target: {fileID: 1030382183163191841, guid: 4c92fd0682fe05046bf5a700992984c2, type: 3}
-      propertyPath: capacityText
-      value: 
-      objectReference: {fileID: 1130136613}
     - target: {fileID: 2706179301400472759, guid: 4c92fd0682fe05046bf5a700992984c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

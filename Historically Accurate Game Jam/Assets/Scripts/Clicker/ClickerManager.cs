@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Clicker;
 using Core;
-using UI;
+using UI.Clicker;
 using Unity.VisualScripting;
 using UnityEngine;
 using Upgrades;
@@ -37,7 +37,13 @@ public class ClickerManager : MonoBehaviour
   [SerializeField] private ClickableResourceScriptableObject defaultResourceValueChanceSettings;
   [SerializeField] private ClickableResourceScriptableObject bonusResourceValueChanceSettings;
 
-  private Dictionary<ResourceType, int> resourcesMined { get; set; } = new Dictionary<ResourceType, int>();
+  private Dictionary<ResourceType, int> resourcesMined    { get; set; } = new Dictionary<ResourceType, int>();
+
+  private Dictionary<ResourceType, int> doubleMinedChance         { get; set; } = new Dictionary<ResourceType, int>();
+  private Dictionary<ResourceType, int> doubleMinedChanceForBonus { get; set; } = new Dictionary<ResourceType, int>();
+
+  private event Action<ResourceType, int, int> resourceMined; 
+  private event Action<int>                    cartFilled;
 
   private int curCartFilled
   {
@@ -48,9 +54,6 @@ public class ClickerManager : MonoBehaviour
       cartFilled?.Invoke(_cart_filled);
     }
   }
-
-  private event Action<ResourceType, int, int> resourceMined; 
-  private event Action<int>                    cartFilled;
 
   private int secondsLeft
   {
@@ -127,6 +130,11 @@ public class ClickerManager : MonoBehaviour
     if (resource.Key == ResourceType.NONE)
       resource = settings.getResourceValueChanceWithType().First();
 
+    random_value = Random.Range(0, 100);
+    Dictionary<ResourceType, int> double_chances = is_bonus ? doubleMinedChanceForBonus : doubleMinedChance;
+    if (random_value < double_chances[resource.Key])
+      resource.Value.amount *= 2;
+
     tryPutToCartWithEndGame(resource.Value.amount, out int filled);
     _clickable_resource.tween();
     setResourceMined(resource.Key, filled);
@@ -199,6 +207,20 @@ public class ClickerManager : MonoBehaviour
   {
     defaultResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
     bonusResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
+  }
+
+  public void addBonusChance(ResourceType resource_type, int amount, bool modify_bonus)
+  {
+    defaultResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
+    if (modify_bonus)
+      bonusResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
+  }
+
+  public void addDoubleChanceBonus(ResourceType resource_type, int amount, bool modify_bonus)
+  {
+    doubleMinedChance[resource_type] += amount;
+    if (modify_bonus)
+      doubleMinedChanceForBonus[resource_type] += amount;
   }
 #endregion
   

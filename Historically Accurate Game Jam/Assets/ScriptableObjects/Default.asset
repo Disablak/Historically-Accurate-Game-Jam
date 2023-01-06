@@ -31,4 +31,4 @@ MonoBehaviour:
     amount: 1
     randomRange:
       minInclusive: 99
-      maxExclusive: 99
+      maxExclusive: 100

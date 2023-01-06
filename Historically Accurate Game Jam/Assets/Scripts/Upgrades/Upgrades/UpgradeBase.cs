@@ -10,6 +10,6 @@
       maxLevel = max_level;
     }
 
-    public abstract string getDescriptionString();
+    public abstract string getDescriptionString(int level);
   }
 }

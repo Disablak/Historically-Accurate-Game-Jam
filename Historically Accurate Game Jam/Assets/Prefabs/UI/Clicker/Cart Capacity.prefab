@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1372f9c789145a589b9d0a8bdc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 0}
-  capacityText: {fileID: 0}
+  progressBar: {fileID: 2706179302184995852}
+  capacityText: {fileID: 2706179302704068081}
 --- !u!1 &2706179302704068087
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,3 +469,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1522216662027677073, guid: e0b40464946a0db449eb692a5d58a0af, type: 3}
   m_PrefabInstance: {fileID: 3499780978884698514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2706179302184995852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1522216662027677086, guid: e0b40464946a0db449eb692a5d58a0af, type: 3}
+  m_PrefabInstance: {fileID: 3499780978884698514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

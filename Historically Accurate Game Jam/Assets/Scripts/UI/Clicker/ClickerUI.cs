@@ -1,11 +1,8 @@
-﻿using System;
-using Core;
+﻿using Core;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace UI
+namespace UI.Clicker
 {
   public class ClickerUI : MonoBehaviour
   {

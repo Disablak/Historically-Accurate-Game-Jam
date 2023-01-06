@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
 
 namespace Clicker
 {
@@ -40,6 +40,23 @@ namespace Clicker
     {
       ensureDictionary();
       resourceValueChanceWithType[resource_type].amount += amount;
+    }
+
+    public void modifyResourceMiningChance(ResourceType resource_type, int amount)
+    {
+      if (resource_type == ResourceType.FIRST)
+        throw new NotSupportedException($"No bonus chance for {nameof(resource_type)} {resource_type}");
+
+      for (int i = (int) ResourceType.FIRST; i <= (int) resource_type; i++)
+      {
+        ResourceType type = (ResourceType) i;
+        if (type != ResourceType.FIRST)
+          resourceValueChanceWithType[type].randomRange.minInclusive -= amount;
+
+        if (type != resource_type)
+          resourceValueChanceWithType[type].randomRange.maxExclusive -= amount;
+        Debug.Log($"Mining chance for {nameof(type)} {type} is {resourceValueChanceWithType[type].randomRange.minInclusive}-{resourceValueChanceWithType[type].randomRange.maxExclusive}");
+      }
     }
 
     private void ensureDictionary()

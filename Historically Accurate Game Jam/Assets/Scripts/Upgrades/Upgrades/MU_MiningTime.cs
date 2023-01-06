@@ -22,7 +22,7 @@ namespace Upgrades
       return secondsForLevel[level - 1];
     }
 
-    public override string getDescriptionString()
+    public override string getDescriptionString(int level)
     {
       throw new System.NotImplementedException();
     }

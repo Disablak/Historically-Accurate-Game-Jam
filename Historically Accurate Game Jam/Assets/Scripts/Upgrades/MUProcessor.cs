@@ -21,6 +21,11 @@ namespace Upgrades
           case MU_PermanentResource permanent_resource:
             clicker_manager.addPermanentResourceBonus(permanent_resource.resourceType, permanent_resource.getAmountForLevel(player.miningPermanentBonusLevel[permanent_resource.resourceType]));
             break;
+          case MU_MiningChance mining_chance:
+            clicker_manager.addBonusChance(mining_chance.resourceType, mining_chance.getBonusChanceForLevel(player.miningBonusChanceLevel[mining_chance.resourceType]), mining_chance.modifyBonus);
+            break;
+          case MU_DoubleMineChance double_mine_chance:
+            clicker_manager.addDoubleChanceBonus(double_mine_chance.resourceType, double_mine_chance.getDoubleChanceForLevel(player.));
         }
       }
     }

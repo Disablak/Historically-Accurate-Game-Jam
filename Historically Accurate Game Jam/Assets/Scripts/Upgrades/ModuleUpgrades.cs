@@ -21,7 +21,9 @@ namespace Upgrades
       registerMiningUpgrade(new MU_CartCapacity(new []{ 1000, 20000, 3000 }));
       foreach (ResourceType resource_type in ResourceTypeHelper.allValues.Except( new[] {ResourceType.DIAMOND} ))
       {
-        registerMiningUpgrade(new MU_PermanentResource(resource_type, new []{ 100, 200, 300 }));
+        registerMiningUpgrade(new MU_PermanentResource(resource_type, new []{ 5, 5, 5 }));
+        if (resource_type != ResourceType.FIRST)
+          registerMiningUpgrade(new MU_MiningChance(resource_type, new int[]{ 5, 5, 5 }, true));
       }
     }
 

@@ -24,7 +24,7 @@ namespace Upgrades
       return amountByLevel[level - 1];
     }
 
-    public override string getDescriptionString()
+    public override string getDescriptionString(int level)
     {
       throw new System.NotImplementedException();
     }
