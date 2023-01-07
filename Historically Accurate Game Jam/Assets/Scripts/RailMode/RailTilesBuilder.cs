@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace DefaultNamespace
 {
@@ -13,7 +14,7 @@ namespace DefaultNamespace
         public List<RailModeTile> TilesInstances;
 
 
-        public void Start()
+        public void Awake()
         {
             float totalLevelWidth = 0;
             Vector3 spawnPosition = SpawnStartPosition;
@@ -38,12 +39,23 @@ namespace DefaultNamespace
 
                 int randomIndex = Random.Range(0, tilesSelection.Count);
                 RailModeTile tile = TilesPrefabs[randomIndex];
-                RailModeTile instance = Instantiate(tile, spawnPosition, tile.transform.rotation);
+                RailModeTile instance = Instantiate(tile, spawnPosition, tile.transform.rotation, transform);
                 TilesInstances.Add(instance);
 
                 spawnPosition.x += tile.TileWidth;
                 totalLevelWidth += tile.TileWidth;
             }
         }
+
+        public void DestroyAllInstances()
+        {
+            foreach (RailModeTile tile in TilesInstances)
+            {
+                Destroy(tile);
+            }
+        }
+
+        public IEnumerable<SplineContainer> GetRailRoadSplinesFromInstances()
+            => TilesInstances.SelectMany(tile => tile.GetAllRoadSplines());
     }
 }

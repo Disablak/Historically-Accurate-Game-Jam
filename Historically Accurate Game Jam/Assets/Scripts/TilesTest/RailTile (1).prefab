@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileWidth: 16
+  RailRoads:
+  - {fileID: 6513298898343074003}
   NonCombinableTiles:
   - {fileID: 6832466397653274578, guid: 9465803588fde4400b3caf0174e11323, type: 3}
 --- !u!1 &6513298898343074005
