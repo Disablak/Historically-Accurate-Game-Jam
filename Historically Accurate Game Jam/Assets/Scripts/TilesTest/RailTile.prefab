@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6501782647481170637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6501782647481170639}
+  - component: {fileID: 6501782647481170638}
+  m_Layer: 0
+  m_Name: Spline (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6501782647481170639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501782647481170637}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6501782647699792170}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6501782647481170638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501782647481170637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_Length: -1
+    m_MetaData: []
+    m_Closed: 0
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -3.99
+        y: 1.29
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.0768499
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.0768499
+      Rotation:
+        value:
+          x: 0.49999997
+          y: -0.49999997
+          z: 0.49999997
+          w: -0.49999997
+    - Position:
+        x: 1.64
+        y: -1.8800001
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.5947603
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.5947603
+      Rotation:
+        value:
+          x: 0.5
+          y: -0.5
+          z: 0.5
+          w: -0.5
+    - Position:
+        x: 3.78
+        y: -0.46000004
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.44145444
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.44145444
+      Rotation:
+        value:
+          x: 0.49999997
+          y: -0.49999997
+          z: 0.49999997
+          w: -0.49999997
+    - Position:
+        x: 5.87
+        y: -1.8900001
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.1672614
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.1672614
+      Rotation:
+        value:
+          x: 0.5271087
+          y: -0.4713347
+          z: 0.47133613
+          w: -0.5271075
+    - Position:
+        x: 10.99
+        y: 1.27
+        z: -0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.002774
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.002774
+      Rotation:
+        value:
+          x: 0.61750317
+          y: -0.34451398
+          z: 0.34453624
+          w: -0.6174907
+    m_Length: -1
+    m_MetaData:
+    - Mode: 2
+      Tension: 0.33333334
+    - Mode: 2
+      Tension: 0.33333334
+    - Mode: 2
+      Tension: 0.33333334
+    - Mode: 2
+      Tension: 0.33333334
+    - Mode: 2
+      Tension: 0.33333334
+    m_Closed: 0
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &6501782647699792168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6501782647699792170}
+  - component: {fileID: 6501782647699792169}
+  m_Layer: 0
+  m_Name: RailTile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6501782647699792170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501782647699792168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6501782647481170639}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6501782647699792169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501782647699792168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff74d71f94a1493e9e7c64f3d30584d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileWidth: 16
+  NonCombinableTiles: []
