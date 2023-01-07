@@ -30,6 +30,7 @@ namespace DefaultNamespace
             Vector3 pointOnSpline = spline.EvaluatePosition(playerOnSplinePositionNormalized);
             Vector3 splineTangent = spline.EvaluateTangent(playerOnSplinePositionNormalized);
 
+            transform.right = splineTangent.normalized;
             float dotProduct = math.dot(GravityDirection, splineTangent.normalized);
 
             currentPlayerSpeed += (Time.deltaTime * gravityForceAcceleration) * dotProduct;

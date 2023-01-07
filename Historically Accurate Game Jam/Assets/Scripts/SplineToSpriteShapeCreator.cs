@@ -38,9 +38,13 @@ namespace DefaultNamespace
                 else
                     shapeSpline.SetPosition(i, railKnot.Position);
 
-                shapeSpline.SetTangentMode(i, ShapeTangentMode.Continuous);
-                shapeSpline.SetLeftTangent(i, railKnot.TangentOut);
-                shapeSpline.SetRightTangent(i, railKnot.TangentIn);
+                if (i != railSpline.Count - 1 && i != 0)
+                    shapeSpline.SetTangentMode(i, ShapeTangentMode.Continuous);
+                else
+                    shapeSpline.SetTangentMode(i, ShapeTangentMode.Linear);
+
+                shapeSpline.SetLeftTangent(i, railKnot.TangentOut.WithoutYParameter());
+                shapeSpline.SetRightTangent(i, railKnot.TangentIn.WithoutYParameter());
             }
 
             var firstPointWorldPosition = ShapeController.transform.TransformPoint(railSpline.First().Position);
