@@ -8,8 +8,8 @@ namespace Upgrades
     public int[] secondsForLevel { get; private set; }
 
 
-    public MU_MiningTime(int[] bonus_seconds_for_level)
-        : base(bonus_seconds_for_level.Length)
+    public MU_MiningTime(int[] bonus_seconds_for_level, int[] diamond_price, int[] money_price)
+        : base(bonus_seconds_for_level.Length, diamond_price, money_price)
     {
       secondsForLevel = bonus_seconds_for_level;
     }
@@ -24,7 +24,7 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      throw new System.NotImplementedException();
+      return $"Adds {getSecondsForLevel(level)} seconds on mining stage";
     }
   }
 }

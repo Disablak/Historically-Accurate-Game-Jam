@@ -5,15 +5,15 @@ namespace Upgrades
 {
   public class MU_PermanentResource : UpgradeBase
   {
-    public ResourceType resourceType  { get; set; }
-    public int[]        amountByLevel { get; set; }
+    public ResourceType[] resourceTypes  { get; set; }
+    public int[]          amountByLevel { get; set; }
 
 
-    public MU_PermanentResource(ResourceType resource_type, int[] amount_by_level)
-        : base(amount_by_level.Length)
+    public MU_PermanentResource(ResourceType[] resource_types, int[] amount_by_level, int[] diamond_price, int[] money_price)
+        : base(amount_by_level.Length, diamond_price, money_price)
     {
-      resourceType = resource_type;
-      amountByLevel =amount_by_level;
+      resourceTypes = resource_types;
+      amountByLevel = amount_by_level;
     }
 
     public int getAmountForLevel(int level)
@@ -26,7 +26,7 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      throw new System.NotImplementedException();
+      return $"Adds {getAmountForLevel(level)} of {resourceTypes.toString()} every time you get it";
     }
   }
 }

@@ -17,19 +17,6 @@ namespace Clicker
     public ResourceValueChance diamond;
 
 
-    public ResourceValueChance getResourceValueChanceByType(ResourceType resource_type)
-      => resource_type switch
-         {
-           ResourceType.COAL    => coal,
-           ResourceType.IRON    => iron,
-           ResourceType.GOLD    => gold,
-           ResourceType.DIAMOND => diamond,
-
-           _ => throw new ArgumentOutOfRangeException(nameof(resource_type), resource_type, null)
-         };
-
-    public List<ResourceValueChance> all => new List<ResourceValueChance>(){coal, iron, gold, diamond};
-
     public Dictionary<ResourceType, ResourceValueChance> getResourceValueChanceWithType()
     {
       ensureDictionary();
@@ -44,13 +31,13 @@ namespace Clicker
 
     public void modifyResourceMiningChance(ResourceType resource_type, int amount)
     {
-      if (resource_type == ResourceType.FIRST)
+      if (resource_type == ResourceType.COAL)
         throw new NotSupportedException($"No bonus chance for {nameof(resource_type)} {resource_type}");
 
-      for (int i = (int) ResourceType.FIRST; i <= (int) resource_type; i++)
+      for (int i = (int) ResourceType.COAL; i <= (int) resource_type; i++)
       {
         ResourceType type = (ResourceType) i;
-        if (type != ResourceType.FIRST)
+        if (type != ResourceType.COAL)
           resourceValueChanceWithType[type].randomRange.minInclusive -= amount;
 
         if (type != resource_type)

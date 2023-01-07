@@ -37,7 +37,7 @@ public class ClickerManager : MonoBehaviour
   [SerializeField] private ClickableResourceScriptableObject defaultResourceValueChanceSettings;
   [SerializeField] private ClickableResourceScriptableObject bonusResourceValueChanceSettings;
 
-  private Dictionary<ResourceType, int> resourcesMined    { get; set; } = new Dictionary<ResourceType, int>();
+  private Dictionary<ResourceType, int> resourcesMined { get; set; } = new Dictionary<ResourceType, int>();
 
   private Dictionary<ResourceType, int> doubleMinedChance         { get; set; } = new Dictionary<ResourceType, int>();
   private Dictionary<ResourceType, int> doubleMinedChanceForBonus { get; set; } = new Dictionary<ResourceType, int>();
@@ -74,7 +74,11 @@ public class ClickerManager : MonoBehaviour
   private void Start()
   {
     foreach (ResourceType resource_type in ResourceTypeHelper.allValues)
-      resourcesMined[resource_type] = 0;
+    {
+      resourcesMined[resource_type]            = 0;
+      doubleMinedChance[resource_type]         = 0;
+      doubleMinedChanceForBonus[resource_type] = 0;
+    }
 
     _clickable_resource = Instantiate(clickableResourcePrefab, resourcePosition).GetComponent<ClickableResource>();
     _clickable_resource.onClicked += onClicked;
@@ -195,7 +199,9 @@ public class ClickerManager : MonoBehaviour
   private void endClicker()
   {
     _is_playable = false;
+    ModulesCommon.ModulePlayer.resourcesMined = resourcesMined;
     stopAll();
+    ModulesCommon.loadNextScene();
   }
 
 #region Upgrades
@@ -203,24 +209,33 @@ public class ClickerManager : MonoBehaviour
 
   public void addCartCapacity(int bonus_capacity) => cartCapacity += bonus_capacity;
 
-  public void addPermanentResourceBonus(ResourceType resource_type, int amount)
+  public void addPermanentResourceBonus(ResourceType[] resource_types, int amount)
   {
-    defaultResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
-    bonusResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
+    foreach (ResourceType resource_type in resource_types)
+    {
+      defaultResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
+      bonusResourceValueChanceSettings.addResourceMiningAmount(resource_type, amount);
+    }
   }
 
-  public void addBonusChance(ResourceType resource_type, int amount, bool modify_bonus)
+  public void addBonusChance(ResourceType[] resource_types, int amount, bool modify_bonus)
   {
-    defaultResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
-    if (modify_bonus)
-      bonusResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
+    foreach (ResourceType resource_type in resource_types)
+    {
+      defaultResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
+      if (modify_bonus)
+        bonusResourceValueChanceSettings.modifyResourceMiningChance(resource_type, amount);
+    }
   }
 
-  public void addDoubleChanceBonus(ResourceType resource_type, int amount, bool modify_bonus)
+  public void addDoubleChanceBonus(ResourceType[] resource_types, int amount, bool modify_bonus)
   {
-    doubleMinedChance[resource_type] += amount;
-    if (modify_bonus)
-      doubleMinedChanceForBonus[resource_type] += amount;
+    foreach (ResourceType resource_type in resource_types)
+    {
+      doubleMinedChance[resource_type] += amount;
+      if (modify_bonus)
+        doubleMinedChanceForBonus[resource_type] += amount;
+    }
   }
 #endregion
   

@@ -4,17 +4,17 @@ namespace Upgrades
 {
   public class MU_MiningChance : UpgradeBase
   {
-    public ResourceType resourceType { get; set; }
+    public ResourceType[] resourceTypes { get; set; }
 
     public int[] chanceForLevel { get; set; }
 
     public bool modifyBonus { get; set; }
 
 
-    public MU_MiningChance(ResourceType resource_type, int[] chance_by_level, bool modify_bonus)
-        : base(chance_by_level.Length)
+    public MU_MiningChance(ResourceType[] resource_types, int[] chance_by_level, bool modify_bonus, int[] diamond_price, int[] money_price)
+        : base(chance_by_level.Length, diamond_price, money_price)
     {
-      resourceType   = resource_type;
+      resourceTypes  = resource_types;
       chanceForLevel = chance_by_level;
       modifyBonus    = modify_bonus;
     }
@@ -29,7 +29,7 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      throw new System.NotImplementedException();
+      return $"Upgrades a chance to get {resourceTypes.toString()} by {getBonusChanceForLevel(level)}";
     }
   }
 }

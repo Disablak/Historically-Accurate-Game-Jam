@@ -5,8 +5,8 @@
     public int[] capacityForLevel { get; set; }
 
 
-    public MU_CartCapacity(int[] capacity_by_level)
-        : base(capacity_by_level.Length)
+    public MU_CartCapacity(int[] capacity_by_level, int[] diamond_price, int[] money_price)
+        : base(capacity_by_level.Length, diamond_price, money_price)
     {
       capacityForLevel = capacity_by_level;
     }
@@ -21,7 +21,7 @@
 
     public override string getDescriptionString(int level)
     {
-      throw new System.NotImplementedException();
+      return $"Adds {getCapacityForLevel(level)} capacity to your cart";
     }
   }
 }

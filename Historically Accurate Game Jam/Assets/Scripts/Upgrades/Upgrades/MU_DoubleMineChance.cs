@@ -4,15 +4,15 @@ namespace Upgrades
 {
   public class MU_DoubleMineChance : UpgradeBase
   {
-    public ResourceType resourceType  { get; set; }
+    public ResourceType[] resourceTypes  { get; set; }
     public int[]        bonusForLevel { get; set; }
     public bool         modifyBonus   { get; set; }
 
 
-    public MU_DoubleMineChance(ResourceType resource_type, int[] bonus_for_level, bool modify_bonus)
-        : base(bonus_for_level.Length)
+    public MU_DoubleMineChance(ResourceType[] resource_types, int[] bonus_for_level, bool modify_bonus, int[] diamond_price, int[] money_price)
+        : base(bonus_for_level.Length, diamond_price, money_price)
     {
-      resourceType  = resource_type;
+      resourceTypes = resource_types;
       bonusForLevel = bonus_for_level;
       modifyBonus   = modify_bonus;
     }
@@ -27,7 +27,10 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      throw new System.NotImplementedException();
+      if (level == 1)
+        return $"Adds a {getDoubleChanceForLevel(level)}% chance to get double {resourceTypes.toString()}";
+      else
+        return $"Upgrades a chance to get double {resourceTypes.toString()} by {getDoubleChanceForLevel(level)}";
     }
   }
 }

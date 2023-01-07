@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 665738801076930938, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: animationTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476677443659308133, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476677443659308133, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476677443659308133, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476677443659308133, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4292596060
+      objectReference: {fileID: 0}
     - target: {fileID: 7496030830290423400, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
       propertyPath: m_Name
       value: Diamond Mined Popup
@@ -22,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7496030830290423405, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7496030830290423405, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -111,6 +131,22 @@ PrefabInstance:
     - target: {fileID: 7760097645707096059, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
       propertyPath: animationTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881717689866412403, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881717689866412403, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881717689866412403, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881717689866412403, guid: f95e43e81496b1147b83df5399f7c3cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,15 +8,15 @@ namespace Player
   {
     public Core.Player player { get; private set; } = new Core.Player();
 
-    public Dictionary<ResourceType, int> balance { get; private set; } = new Dictionary<ResourceType, int>();
+    public Dictionary<ResourceType, int> resourcesMined { get; set; } = new Dictionary<ResourceType, int>();
 
 
     public void addResource(ResourceType resource_type, int amount)
     {
-      if (!balance.ContainsKey(resource_type))
-        balance[resource_type] = 0;
+      if (!resourcesMined.ContainsKey(resource_type))
+        resourcesMined[resource_type] = 0;
 
-      balance[resource_type] += amount;
+      resourcesMined[resource_type] += amount;
     }
   }
 }

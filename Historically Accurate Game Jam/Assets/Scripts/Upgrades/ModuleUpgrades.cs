@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Core;
 
@@ -17,14 +18,11 @@ namespace Upgrades
 
     private void cacheUpgrades()
     {
-      registerMiningUpgrade(new MU_MiningTime(new []{ 10, 20, 30, 40, 50 }));
-      registerMiningUpgrade(new MU_CartCapacity(new []{ 1000, 20000, 3000 }));
-      foreach (ResourceType resource_type in ResourceTypeHelper.allValues.Except( new[] {ResourceType.DIAMOND} ))
-      {
-        registerMiningUpgrade(new MU_PermanentResource(resource_type, new []{ 5, 5, 5 }));
-        if (resource_type != ResourceType.FIRST)
-          registerMiningUpgrade(new MU_MiningChance(resource_type, new int[]{ 5, 5, 5 }, true));
-      }
+      registerMiningUpgrade(new MU_MiningTime(new []{ 10, 20, 30, 40, 50 }, Array.Empty<int>(), new []{ 500, 1000, 2000, 4000, 6000} ));
+      registerMiningUpgrade(new MU_CartCapacity(new []{ 1000, 20000, 3000 }, new []{ 1, 2, 3 }, new []{ 500, 1000, 2000}));
+      registerMiningUpgrade(new MU_PermanentResource(ResourceTypeHelper.allValues.Except( new[] {ResourceType.DIAMOND} ).ToArray(), new []{ 5, 5, 5 },new []{ 500, 1000, 2000}, Array.Empty<int>() ) );
+      registerMiningUpgrade(new MU_MiningChance(new [] {ResourceType.IRON, ResourceType.GOLD}, new int[]{ 5, 5, 5 }, true, new []{ 500, 1000, 2000}, Array.Empty<int>()));
+      registerMiningUpgrade(new MU_DoubleMineChance(new [] {ResourceType.COAL, ResourceType.IRON, ResourceType.GOLD}, new []{ 2, 5, 10 }, true, Array.Empty<int>(), new []{ 1000, 2000, 3000 }));
     }
 
     private void registerMiningUpgrade(UpgradeBase upgrade)
