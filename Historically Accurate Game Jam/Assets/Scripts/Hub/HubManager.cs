@@ -2,13 +2,19 @@
 using Core;
 using UnityEngine;
 
+
 namespace Hub
 {
   public class HubManager : MonoBehaviour
   {
+    [SerializeField] private SalesWindow salesWindow;
+
+
     private void Awake()
     {
-      ModulesCommon.ModuleSales.sellResourced(ModulesCommon.ModulePlayer.resourcesMined);
+      SaleResult sale_result = ModulesCommon.ModuleSales.sellResourced(ModulesCommon.ModulePlayer.resourcesMined);
+      if (sale_result.totalSold() > 0)
+        salesWindow.init(sale_result);
     }
 
     public void goToMine()

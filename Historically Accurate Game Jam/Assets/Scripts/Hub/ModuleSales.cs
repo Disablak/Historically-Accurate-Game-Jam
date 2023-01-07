@@ -14,7 +14,15 @@ namespace Hub
 
     public SaleResult sellResourced(Dictionary<ResourceType, int> resources_brought)
     {
-      SaleResult sale_result = new SaleResult(coalPrice, ironPrice, goldPrice);
+      SaleResult sale_result = new SaleResult()
+      {
+          resourcesPrice = new Dictionary<ResourceType, int>()
+          {
+              { ResourceType.COAL, coalPrice },
+              { ResourceType.IRON, ironPrice},
+              { ResourceType.GOLD, goldPrice }
+          }
+      };
       foreach (ResourceType resource_type in ResourceTypeHelper.allValues.Except(new[] {ResourceType.DIAMOND}))
       {
         resources_brought.TryGetValue(resource_type, out int mined);
@@ -24,7 +32,7 @@ namespace Hub
       if (resources_brought.ContainsKey(ResourceType.DIAMOND))
         sale_result.totalDiamondsCount = resources_brought[ResourceType.DIAMOND];
 
-      ModulesCommon.ModulePlayer.player.moneyBalance    += sale_result.totalMoneyCount;
+      ModulesCommon.ModulePlayer.player.moneyBalance    += sale_result.totalSold();
       ModulesCommon.ModulePlayer.player.diamondsBalance += sale_result.totalDiamondsCount;
 
       return sale_result;
@@ -34,22 +42,21 @@ namespace Hub
   public class SaleResult
   {
     public int                           totalDiamondsCount;
-    public Dictionary<ResourceType, int> resourcesSold = new Dictionary<ResourceType, int>();
-    public int                           coalPrice;
-    public int                           ironPrice;
-    public int                           goldPrice;
+    public Dictionary<ResourceType, int> resourcesSold  = new Dictionary<ResourceType, int>();
+    public Dictionary<ResourceType, int> resourcesPrice = new Dictionary<ResourceType, int>();
 
-    public SaleResult(int coal_price, int iron_price, int gold_price)
+    public int getMoney(ResourceType resource_type)
     {
-      coalPrice = coal_price;
-      ironPrice = iron_price;
-      goldPrice = gold_price;
+      return resourcesSold[resource_type] * resourcesPrice[resource_type];
     }
 
-    public int coalMoney => resourcesSold[ResourceType.COAL] * coalPrice;
-    public int ironMoney => resourcesSold[ResourceType.IRON] * ironPrice;
-    public int goldMoney => resourcesSold[ResourceType.GOLD] * goldPrice;
+    public int totalSold()
+    {
+      int res = 0;
+      foreach (ResourceType resource_type in resourcesSold.Keys)
+        res += getMoney(resource_type);
 
-    public int totalMoneyCount => coalMoney + ironMoney + goldMoney;
+      return res;
+    }
   }
 }
