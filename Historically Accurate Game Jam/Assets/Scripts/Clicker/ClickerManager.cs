@@ -42,6 +42,8 @@ public class ClickerManager : MonoBehaviour
   private Dictionary<ResourceType, int> doubleMinedChance         { get; set; } = new Dictionary<ResourceType, int>();
   private Dictionary<ResourceType, int> doubleMinedChanceForBonus { get; set; } = new Dictionary<ResourceType, int>();
 
+  private bool hasHelper { get; set; }
+
   private event Action<ResourceType, int, int> resourceMined; 
   private event Action<int>                    cartFilled;
 
