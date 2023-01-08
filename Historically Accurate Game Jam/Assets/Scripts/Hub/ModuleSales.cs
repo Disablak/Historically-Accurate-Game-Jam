@@ -7,9 +7,9 @@ namespace Hub
 {
   public class ModuleSales
   {
-    private int coalPrice { set; get; } = 1;
-    private int ironPrice { get; set; } = 5;
-    private int goldPrice { get; set; } = 20;
+    private int coalPrice { set; get; } = 15;
+    private int ironPrice { get; set; } = 35;
+    private int goldPrice { get; set; } = 150;
 
 
     public SaleResult sellResourced(Dictionary<ResourceType, int> resources_brought)

@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   coal:
-    amount: 1
+    amount: 8
     randomRange:
       minInclusive: 0
-      maxExclusive: 80
+      maxExclusive: 60
   iron:
-    amount: 1
+    amount: 5
     randomRange:
-      minInclusive: 80
+      minInclusive: 60
       maxExclusive: 90
   gold:
-    amount: 1
+    amount: 3
     randomRange:
       minInclusive: 90
       maxExclusive: 99

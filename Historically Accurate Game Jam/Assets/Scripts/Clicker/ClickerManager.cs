@@ -47,7 +47,7 @@ public class ClickerManager : MonoBehaviour
 
   private float helperMineSeconds { get; set; } = -1;
 
-  private event Action<ResourceType, int, int, bool> resourceMined; 
+  private event System.Action<ResourceType, int, int, bool, bool> resourceMined; 
   private event Action<int>                          cartFilled;
 
   private int curCartFilled
@@ -147,13 +147,13 @@ public class ClickerManager : MonoBehaviour
     tryPutToCartWithEndGame(resource.Value.amount, out int filled);
     if(!is_helper)
       _clickable_resource.tween();
-    setResourceMined(resource.Key, filled, is_helper);
+    setResourceMined(resource.Key, filled, is_helper, is_bonus);
   }
 
-  private void setResourceMined(ResourceType resource_type, int resource_count, bool is_helper)
+  private void setResourceMined(ResourceType resource_type, int resource_count, bool is_helper, bool is_bonus)
   {
     resourcesMined[resource_type] += resource_count;
-    resourceMined?.Invoke(resource_type, resource_count, resourcesMined[resource_type], is_helper);
+    resourceMined?.Invoke(resource_type, resource_count, resourcesMined[resource_type], is_helper, is_bonus);
   }
 
   private IEnumerator spawnBonusCoroutine()
