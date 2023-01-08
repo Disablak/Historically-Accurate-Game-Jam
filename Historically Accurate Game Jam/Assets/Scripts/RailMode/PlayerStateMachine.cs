@@ -34,8 +34,17 @@ namespace DefaultNamespace
             finishSplines = tilesBuilder.GetSplinesFromLastTile().ToList();
         }
 
-        public void ActivateFlyingState(Vector3 PlayerPosition, Vector3 PlayerDirection)
+        public void ActivateFlyingState(
+            float currentSplineNormalizedPosition,
+            Vector3 PlayerPosition,
+            Vector3 PlayerDirection)
         {
+            if (finishSplines.Contains(_ridingState.spline) && currentSplineNormalizedPosition >= 0.95f)
+            {
+                ActivateFinishState();
+                return;
+            }
+
             _flyingState.EnableState(PlayerPosition, PlayerDirection);
 
             _flyingState.enabled = true;
@@ -44,12 +53,6 @@ namespace DefaultNamespace
 
         public void ActivateRailingState(SplineContainer spline, float normalizedDistanceOnSpline)
         {
-            if (finishSplines.Contains(spline))
-            {
-                ActivateFinishState();
-                return;
-            }
-
             _ridingState.EnableState(spline, normalizedDistanceOnSpline);
 
             _flyingState.enabled = false;
@@ -69,10 +72,10 @@ namespace DefaultNamespace
             _flyingState.enabled = false;
             _ridingState.enabled = false;
             _obstacleDetectionState.enabled = false;
-            
+
             ModulesCommon.ModuleCart.endCarting();
             ModulesCommon.loadNextScene();
-            
+
             Debug.Log("Level completed");
         }
     }

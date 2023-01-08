@@ -10,6 +10,7 @@ namespace DefaultNamespace
         public float DesiredLevelWidth;
         public Vector3 SpawnStartPosition;
 
+        public RailModeTile FinishTile;
         public RailModeTile[] TilesPrefabs;
         public List<RailModeTile> TilesInstances;
 
@@ -44,6 +45,12 @@ namespace DefaultNamespace
 
                 spawnPosition.x += tile.TileWidth;
                 totalLevelWidth += tile.TileWidth;
+            }
+
+            if (FinishTile != null)
+            {
+                RailModeTile instance = Instantiate(FinishTile, spawnPosition, FinishTile.transform.rotation, transform);
+                TilesInstances.Add(instance);
             }
         }
 
