@@ -391,6 +391,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3770645890603953070, guid: 39afa0dff3d59b0419b414ec27be51af, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5255135274949225027, guid: 39afa0dff3d59b0419b414ec27be51af, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -545,6 +549,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6847431343257845926, guid: 39afa0dff3d59b0419b414ec27be51af, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660070251180742485, guid: 39afa0dff3d59b0419b414ec27be51af, type: 3}
+      propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8573467984841382947, guid: 39afa0dff3d59b0419b414ec27be51af, type: 3}
@@ -847,7 +855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dirizhabl`, aga
+  m_text: THE END(
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c07149338eda34aef95c193a833ea395, type: 2}
   m_sharedMaterial: {fileID: 7094584983945738844, guid: c07149338eda34aef95c193a833ea395, type: 2}
@@ -1376,6 +1384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salesWindow: {fileID: 753850126}
+  imageFade: {fileID: 1358086107}
+  endGO: {fileID: 1409770410}
 --- !u!4 &1010086293
 Transform:
   m_ObjectHideFlags: 0
