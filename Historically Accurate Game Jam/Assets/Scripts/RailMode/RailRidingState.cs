@@ -18,7 +18,6 @@ namespace DefaultNamespace
         public float currentPlayerSpeed;
 
         private PlayerStateMachine machine;
-        private float timestamp;
 
         public void SetStateMachine(PlayerStateMachine machine)
         {
@@ -30,7 +29,6 @@ namespace DefaultNamespace
             this.spline = spline;
             playerOnSplineDistance = NormalizedToDistance(normalizedDistanceOnSpline);
             currentPlayerSpeed = 0;
-            timestamp = Time.time;
         }
 
         private void Update()
@@ -55,7 +53,8 @@ namespace DefaultNamespace
 
             void GotoFlyingState(Vector3 additionalJumpingDirection)
             {
-                var playerDirection = currentPlayerSpeed * splineTangent.normalized;
+                var playerDirection = (staticPlayerSpeed + (gravityForceAcceleration * dotProduct)) *
+                                      splineTangent.normalized;
                 playerDirection += additionalJumpingDirection;
 
                 machine.ActivateFlyingState(pointOnSpline, playerDirection);

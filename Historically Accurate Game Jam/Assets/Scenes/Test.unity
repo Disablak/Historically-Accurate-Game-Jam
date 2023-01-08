@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spline: {fileID: 0}
-  AdditionalJumpDirection: {x: 3, y: 7, z: 0}
+  AdditionalJumpDirection: {x: 0, y: 7, z: 0}
   gravityForceAcceleration: 1
   staticPlayerSpeed: 5
   playerOnSplineDistance: 0
