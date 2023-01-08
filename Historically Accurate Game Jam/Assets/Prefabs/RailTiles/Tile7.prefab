@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff74d71f94a1493e9e7c64f3d30584d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileWidth: 40
+  TileWidth: 27
   RailRoads:
   - {fileID: 6513298898343074003}
   NonCombinableTiles:
