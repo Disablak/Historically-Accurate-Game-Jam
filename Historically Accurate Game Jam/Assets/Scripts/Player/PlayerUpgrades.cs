@@ -21,6 +21,9 @@ namespace Upgrades
 
       if (upgrade_base is AirshipUpgrade)
         ModulesCommon.airshipBought();
+
+      if (upgrade_base is CU_GuaranteeResource guarantee_resource)
+        ModulesCommon.ModuleCart.guaranteeResources = guarantee_resource.percentByLevel[getBonusLevel(upgrade_base)];
     }
 
     public int getBonusLevel(UpgradeBase upgrade_base)
