@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff74d71f94a1493e9e7c64f3d30584d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileWidth: 20
+  TileWidth: 14.4
   RailRoads:
   - {fileID: 6513298898343074003}
   NonCombinableTiles:
@@ -163,13 +163,13 @@ MonoBehaviour:
         y: 0.68
         z: 0
       TangentIn:
-        x: 0.6148043
-        y: -0
-        z: -0.008904636
+        x: 0.6099047
+        y: -0.000000059604645
+        z: 0.0005261153
       TangentOut:
-        x: -0.6148043
-        y: 0
-        z: 0.008904636
+        x: -0.6099047
+        y: 0.000000059604645
+        z: -0.0005261153
       Rotation:
         value:
           x: 0.24870846
@@ -177,17 +177,17 @@ MonoBehaviour:
           z: 0.6619246
           w: -0.24870847
     - Position:
-        x: 10.6
-        y: 4.46
+        x: 10.41
+        y: 4.47
         z: -0
       TangentIn:
-        x: 0.27550402
+        x: 0.2710501
         y: -0
-        z: -0.9225981
+        z: -0.73674077
       TangentOut:
-        x: -0.27550402
+        x: -0.2710501
         y: 0
-        z: 0.9225981
+        z: 0.73674077
       Rotation:
         value:
           x: 0.5898091
@@ -195,23 +195,23 @@ MonoBehaviour:
           z: 0.39003235
           w: -0.5898091
     - Position:
-        x: 19.66
-        y: 11.6
+        x: 14.44
+        y: 8.28
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -2.2318149
+        z: -1.8117673
       TangentOut:
         x: 0
         y: 0
-        z: 2.2318149
+        z: 1.8117673
       Rotation:
         value:
-          x: 0.50998765
-          y: -0.48980868
-          z: 0.48982105
-          w: -0.50997585
+          x: 0.63928884
+          y: -0.30217505
+          z: 0.302193
+          w: -0.6392804
     m_Length: -1
     m_MetaData:
     - Mode: 1
@@ -318,8 +318,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 9.790168, y: 5.5380554, z: 0}
-    m_Extent: {x: 9.896745, y: 6.230293, z: 0}
+    m_Center: {x: 6.793008, y: 3.4443452, z: 0}
+    m_Extent: {x: 6.8908277, y: 4.136583, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &2963586564958094118
 MonoBehaviour:
@@ -338,8 +338,8 @@ MonoBehaviour:
     m_ControlPoints:
     - position: {x: -0.06512928, y: -0.02376321, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: 0.56928384, y: -0.12059514, z: 0}
-      mode: 2
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
       height: 1
       spriteIndex: 0
       corner: 1
@@ -384,42 +384,10 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 11.750365, y: 5.4441943, z: -0.08725696}
+    - position: {x: 13.544394, y: 7.4375587, z: -0.08725696}
       leftTangent: {x: -1.6145878, y: -1.5703464, z: -0.029929154}
       rightTangent: {x: 1.3956356, y: 1.3573937, z: 0.025870502}
       mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 14.530436, y: 8.080012, z: 0}
-      leftTangent: {x: -0.18935871, y: -0.15707731, z: -0.014049805}
-      rightTangent: {x: 0.26603413, y: 0.2207098, z: 0.019738892}
-      mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 16.412605, y: 9.702811, z: 0.28097227}
-      leftTangent: {x: -0.6264515, y: -0.52581406, z: -0.09101778}
-      rightTangent: {x: 0.68704987, y: 0.576704, z: 0.10173017}
-      mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 17.922447, y: 10.80476, z: 0}
-      leftTangent: {x: -0.20537376, y: -0.14522934, z: 0.3884642}
-      rightTangent: {x: 0.3973999, y: 0.28102016, z: -0.7516832}
-      mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 19.665386, y: 11.5695095, z: 0}
-      leftTangent: {x: -0.5664005, y: -0.06131935, z: 0}
-      rightTangent: {x: 0, y: 0, z: 0}
-      mode: 2
       height: 1
       spriteIndex: 0
       corner: 1

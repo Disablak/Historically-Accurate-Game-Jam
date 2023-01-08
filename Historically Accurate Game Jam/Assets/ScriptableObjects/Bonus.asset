@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Bonus
   m_EditorClassIdentifier: 
   coal:
-    amount: 20
+    amount: 0
+    randomRange:
+      minInclusive: -1
+      maxExclusive: -1
+  iron:
+    amount: 0
+    randomRange:
+      minInclusive: -1
+      maxExclusive: -1
+  gold:
+    amount: 6
     randomRange:
       minInclusive: 0
-      maxExclusive: 70
-  iron:
-    amount: 5
-    randomRange:
-      minInclusive: 70
-      maxExclusive: 85
-  gold:
-    amount: 5
-    randomRange:
-      minInclusive: 85
-      maxExclusive: 90
+      maxExclusive: 100
   diamond:
     amount: 1
     randomRange:
-      minInclusive: 90
-      maxExclusive: 100
+      minInclusive: -1
+      maxExclusive: -1
