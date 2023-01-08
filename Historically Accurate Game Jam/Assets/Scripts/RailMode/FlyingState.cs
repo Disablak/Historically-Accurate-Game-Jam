@@ -8,8 +8,6 @@ namespace DefaultNamespace
 {
     public class FlyingState : MonoBehaviour
     {
-        public RailRidingState RailRidingState;
-        public RailCrushState RailCrushState;
         public Vector3 MovementDirection;
         public Vector3 GravityDirection;
         public Vector3 StartedFlyingFromPoint;
@@ -20,11 +18,19 @@ namespace DefaultNamespace
         public float PlayerAltitudeToBeConsideredCrushed = -1;
 
 
+        public int testValue;
         public float distanceToSplinePointThisFrame;
         public Vector3 directionToSplinePointThisFrame;
 
+        private PlayerStateMachine machine;
 
-        public void Initialize(Vector3 PlayerPosition, Vector3 PlayerDirection)
+
+        public void SetStateMachine(PlayerStateMachine machine)
+        {
+            this.machine = machine;
+        }
+
+        public void EnableState(Vector3 PlayerPosition, Vector3 PlayerDirection)
         {
             MovementDirection = PlayerDirection;
             StartedFlyingFromPoint = PlayerPosition;
@@ -35,6 +41,8 @@ namespace DefaultNamespace
 
         private void Update()
         {
+            Application.targetFrameRate = testValue;
+
             MovementDirection += GravityDirection * Time.deltaTime;
             transform.position += MovementDirection;
 
@@ -59,8 +67,7 @@ namespace DefaultNamespace
                 if (distanceToSplinePoint <= DistanceToRailToBeAttachedTo
                     && distanceFromStartToEnd >= DistanceFromStartToBeAllowedToAttach)
                 {
-                    RailRidingState.Initialize(splineContainer, normalizedDistance);
-                    enabled = false;
+                    machine.ActivateRailingState(splineContainer, normalizedDistance);
                     return;
                 }
             }
@@ -68,8 +75,7 @@ namespace DefaultNamespace
             if (transform.position.y >= PlayerAltitudeToBeConsideredCrushed)
                 return;
 
-            enabled = false;
-            RailCrushState.Initialize();
+            machine.ActivateCrushedState();
         }
     }
 }

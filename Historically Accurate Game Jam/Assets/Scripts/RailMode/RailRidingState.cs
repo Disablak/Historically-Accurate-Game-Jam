@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -7,21 +8,29 @@ namespace DefaultNamespace
     public class RailRidingState : MonoBehaviour
     {
         public SplineContainer spline;
-        public FlyingState FlyingState;
         public Vector3 AdditionalJumpDirection;
 
         Vector3 GravityDirection = Vector3.down;
 
         public float gravityForceAcceleration = 0.5f;
+        public float staticPlayerSpeed = 0.5f;
         public float playerOnSplineDistance;
         public float currentPlayerSpeed;
 
+        private PlayerStateMachine machine;
+        private float timestamp;
 
-        public void Initialize(SplineContainer spline, float normalizedDistanceOnSpline)
+        public void SetStateMachine(PlayerStateMachine machine)
+        {
+            this.machine = machine;
+        }
+
+        public void EnableState(SplineContainer spline, float normalizedDistanceOnSpline)
         {
             this.spline = spline;
             playerOnSplineDistance = NormalizedToDistance(normalizedDistanceOnSpline);
-            enabled = true;
+            currentPlayerSpeed = 0;
+            timestamp = Time.time;
         }
 
         private void Update()
@@ -33,13 +42,13 @@ namespace DefaultNamespace
             transform.right = splineTangent.normalized;
             float dotProduct = math.dot(GravityDirection, splineTangent.normalized);
 
-            currentPlayerSpeed += (Time.deltaTime * gravityForceAcceleration) * dotProduct;
+            currentPlayerSpeed = (staticPlayerSpeed + (gravityForceAcceleration * dotProduct)) * Time.deltaTime;
 
             playerOnSplineDistance += currentPlayerSpeed;
 
             if (Input.GetKeyDown(KeyCode.Space))
-                GotoFlyingState(AdditionalJumpDirection * Time.deltaTime);
-            else if ((playerOnSplinePositionNormalized is > 1.0f or < 0.0f))
+                GotoFlyingState(AdditionalJumpDirection);
+            else if (playerOnSplinePositionNormalized is > 1.0f or < 0.0f)
                 GotoFlyingState(Vector3.zero);
 
             transform.position = pointOnSpline;
@@ -47,10 +56,9 @@ namespace DefaultNamespace
             void GotoFlyingState(Vector3 additionalJumpingDirection)
             {
                 var playerDirection = currentPlayerSpeed * splineTangent.normalized;
-                playerDirection += additionalJumpingDirection;
+                playerDirection += additionalJumpingDirection * Time.deltaTime;
 
-                FlyingState.Initialize(pointOnSpline, playerDirection);
-                enabled = false;
+                machine.ActivateFlyingState(pointOnSpline, playerDirection);
             }
         }
 
