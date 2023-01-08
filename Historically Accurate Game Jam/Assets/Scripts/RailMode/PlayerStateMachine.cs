@@ -9,6 +9,7 @@ namespace DefaultNamespace
     public class PlayerStateMachine : MonoBehaviour
     {
         public RailTilesBuilder tilesBuilder;
+        public AudioSource CrushAudio;
 
         private RailRidingState _ridingState;
         private FlyingState _flyingState;
@@ -58,6 +59,8 @@ namespace DefaultNamespace
         public void ActivateCrushedState()
         {
             ModulesCommon.ModuleCart.tryLoseResources(out _);
+            CrushAudio.Stop();
+            CrushAudio.Play();
             ActivateRailingState(_ridingState.spline, 0.0f);
         }
 
