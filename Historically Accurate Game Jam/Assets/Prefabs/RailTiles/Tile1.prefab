@@ -234,7 +234,7 @@ MonoBehaviour:
           z: 0.46417072
           w: -0.5334282
     - Position:
-        x: 32.42
+        x: 32
         y: 0
         z: -0
       TangentIn:
@@ -328,10 +328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff74d71f94a1493e9e7c64f3d30584d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileWidth: 16
+  TileWidth: 32
   RailRoads:
   - {fileID: 0}
-  NonCombinableTiles: []
+  NonCombinableTiles:
+  - {fileID: 6832466397653274578}
 --- !u!1001 &367916448911086851
 PrefabInstance:
   m_ObjectHideFlags: 0
