@@ -25,7 +25,7 @@ namespace Core
 
     public int loadNextScene()
     {
-      if (curScene == CLICKER_SCENE_ID)
+      if (curScene == CART_SCENE_ID)
         curScene = HUB_SCENE_ID;
       else
         ++curScene;

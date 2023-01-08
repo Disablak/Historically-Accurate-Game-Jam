@@ -18,7 +18,7 @@ namespace UI.Clicker
       cartCapacityUI.setMaxCapacity(max_cart_capacity);
     }
 
-    public void resourceMined(ResourceType resource_type, int amount, int total, bool is_helper)
+    public void resourceMined(ResourceType resource_type, int amount, int total, bool is_helper, bool is_bonus)
     {
       resourcesBalance.setResourceBalance(resource_type, total);
       if (!is_helper)
