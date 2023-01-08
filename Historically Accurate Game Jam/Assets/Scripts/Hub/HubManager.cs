@@ -19,7 +19,10 @@ namespace Hub
 
     public void goToMine()
     {
-      ModulesCommon.loadNextScene();
+      Invoke( "loadNextScene", 0.6f );
     }
+
+    private void loadNextScene() =>
+      ModulesCommon.loadNextScene();
   }
 }

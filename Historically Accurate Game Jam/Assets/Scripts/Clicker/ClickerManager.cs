@@ -31,6 +31,7 @@ public class ClickerManager : MonoBehaviour
   [SerializeField] private Transform           resourcePosition;
   [SerializeField] private ClickerUI           clickerUI;
   [SerializeField] private ClickerSoundManager clickerSoundManager;
+  [SerializeField] private ImageFade           image_fade = null;
 
   [Header("Settings")]
   [SerializeField] private int   secondsToMine;
@@ -224,7 +225,11 @@ public class ClickerManager : MonoBehaviour
 
   private IEnumerator loadNextSceneCoroutine()
   {
-    yield return new WaitForSeconds(3f);
+    yield return new WaitForSeconds(1f);
+
+    image_fade.enableFade( false );
+    yield return new WaitForSeconds(0.6f);
+
     ModulesCommon.ModuleCart.endCarting();
     ModulesCommon.loadNextScene();
   }
