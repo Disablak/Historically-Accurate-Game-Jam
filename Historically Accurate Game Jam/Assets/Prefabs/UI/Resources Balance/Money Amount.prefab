@@ -17,6 +17,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 118955361478255433, guid: bfacdcab51d6ca64896c7c8a7763698d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.626
+      objectReference: {fileID: 0}
+    - target: {fileID: 118955361478255433, guid: bfacdcab51d6ca64896c7c8a7763698d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 54.3167
+      objectReference: {fileID: 0}
+    - target: {fileID: 118955361478255433, guid: bfacdcab51d6ca64896c7c8a7763698d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -27,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 572318766236508990, guid: bfacdcab51d6ca64896c7c8a7763698d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a669dd5842fb27043acd65a37ce89a7a, type: 3}
+      objectReference: {fileID: 21300000, guid: 1f7469f9b4a0c4f0aae601cfe2718f29, type: 3}
     - target: {fileID: 759712005392410857, guid: bfacdcab51d6ca64896c7c8a7763698d, type: 3}
       propertyPath: m_Name
       value: Money Amount
