@@ -56,7 +56,7 @@ namespace DefaultNamespace
             void GotoFlyingState(Vector3 additionalJumpingDirection)
             {
                 var playerDirection = currentPlayerSpeed * splineTangent.normalized;
-                playerDirection += additionalJumpingDirection * Time.deltaTime;
+                playerDirection += additionalJumpingDirection;
 
                 machine.ActivateFlyingState(pointOnSpline, playerDirection);
             }

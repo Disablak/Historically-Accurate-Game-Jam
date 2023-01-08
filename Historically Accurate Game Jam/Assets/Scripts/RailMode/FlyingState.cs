@@ -44,7 +44,7 @@ namespace DefaultNamespace
             Application.targetFrameRate = testValue;
 
             MovementDirection += GravityDirection * Time.deltaTime;
-            transform.position += MovementDirection;
+            transform.position += MovementDirection * Time.deltaTime;
 
             foreach (SplineContainer splineContainer in Rails)
             {
