@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Core;
 using TMPro;
 using UnityEngine;
@@ -9,11 +10,12 @@ namespace UI.Hub
 {
   public class UpgradeButton : MonoBehaviour
   {
-    [SerializeField] private TMP_Text         levelText;
-    [SerializeField] private TMP_Text         descriptionText;
-    [SerializeField] private Slider           progressBar;
-    [SerializeField] private PriceContainerUI priceContainer;
-    [SerializeField] private AudioSource      audioSource;
+    [SerializeField] private TMP_Text          levelText;
+    [SerializeField] private TMP_Text          descriptionText;
+    [SerializeField] private Slider            progressBar;
+    [SerializeField] private PriceContainerUI  priceContainer;
+    [SerializeField] private AudioSource       audioSource;
+    [SerializeField] private AffectedResources affectedResources;
 
     private UpgradeBase upgrade { get; set; }
 
@@ -37,6 +39,8 @@ namespace UI.Hub
       progressBar.maxValue = maxLevel;
       progressBar.minValue = PlayerUpgrades.DEFAULT_LEVEL; 
       setValues(curLevel);
+      if (upgrade.getAffectedResources().Any())
+        affectedResources.spawnResources(upgrade.getAffectedResources());
       gameObject.SetActive(true);
     }
 

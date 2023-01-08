@@ -10,22 +10,32 @@ using UnityEngine;
 
 public class SalesWindow : MonoBehaviour
 {
-  [SerializeField] private TMP_Text    windowText;
   [SerializeField] private AudioSource audioSource;
+  [SerializeField] private ResourceSold coalSold;
+  [SerializeField] private ResourceSold ironSold;
+  [SerializeField] private ResourceSold goldSold;
+  [SerializeField] private TMP_Text     diamondText;
+  [SerializeField] private TMP_Text     moneyText;
 
 
   public void init(SaleResult sale_result)
   {
-    string text = string.Empty;
     foreach (ResourceType resource_type in ResourceTypeHelper.allValues.Except(new [] {ResourceType.DIAMOND}))
     {
-      text += $"{resource_type.ToString()}: {sale_result.resourcesSold[resource_type]} x {sale_result.resourcesPrice[resource_type]} = {sale_result.getMoney(resource_type)}\n";
+      ResourceSold resource_sold = null;
+      switch (resource_type)
+      {
+        case ResourceType.COAL: resource_sold = coalSold; break;
+        case ResourceType.IRON: resource_sold = ironSold; break;
+        case ResourceType.GOLD: resource_sold = goldSold; break;
+      }
+      if (resource_sold)
+        resource_sold.setText(sale_result.resourcesSold[resource_type], sale_result.resourcesPrice[resource_type], sale_result.getMoney(resource_type));
     }
 
-    text += $"Total money: {sale_result.totalSold()}\n";
-    text += $"{ResourceType.DIAMOND.ToString()} = {sale_result.totalDiamondsCount}";
+    diamondText.SetText(sale_result.totalDiamondsCount.ToString());
+    moneyText.SetText(sale_result.totalSold().ToString());
 
-    windowText.SetText(text);
     gameObject.SetActive(true);
     audioSource.Play();
   }
