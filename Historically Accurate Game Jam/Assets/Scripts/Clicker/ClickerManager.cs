@@ -22,7 +22,7 @@ public class ClickerManager : MonoBehaviour
   private int               _cart_filled;
 
   private event Action timerEnding;
-  private event Action gameEnded;
+  private event Action<bool> gameEnded; // is ended time
 
   [Header("References")] [SerializeField]
   private Object clickableBonusPrefab;
@@ -69,7 +69,7 @@ public class ClickerManager : MonoBehaviour
       _seconds_left = value;
 
       if (value <= 0)
-        gameEnded?.Invoke();
+        gameEnded?.Invoke( true );
       else if (value <= timeRunningOutSeconds)
         timerEnding?.Invoke();
     }
@@ -127,7 +127,7 @@ public class ClickerManager : MonoBehaviour
 
     filled = cartCapacity - curCartFilled;
     curCartFilled = cartCapacity;
-    gameEnded?.Invoke();
+    gameEnded?.Invoke(false);
     cartFilled?.Invoke(curCartFilled);
   }
 
@@ -214,7 +214,7 @@ public class ClickerManager : MonoBehaviour
     clickable_resource.onClicked += onClicked;
   }
 
-  private void endClicker()
+  private void endClicker(bool _)
   {
     _is_playable = false;
     ModulesCommon.ModulePlayer.resourcesMined = resourcesMined;
