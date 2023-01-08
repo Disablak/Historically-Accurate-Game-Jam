@@ -45,7 +45,11 @@ namespace DefaultNamespace
 
             playerOnSplineDistance += currentPlayerSpeed;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)
+                || Input.GetMouseButtonDown(0)
+                || Input.GetMouseButtonDown(1)
+                || Input.GetMouseButtonDown(2)
+                || (Input.touchCount > 1 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 JumpAudio.Stop();
                 JumpAudio.time = 0.6f;

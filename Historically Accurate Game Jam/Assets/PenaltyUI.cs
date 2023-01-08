@@ -18,5 +18,5 @@ public class PenaltyUI : MonoBehaviour
   }
 
   public void updateText(int penalty) =>
-    txt.text = $"Penalty:  {penalty}  % $";
+    txt.text = $"Penalty percentage:  {penalty}";
 }
