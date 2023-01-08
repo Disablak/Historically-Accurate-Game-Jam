@@ -7,7 +7,7 @@ namespace Hub
 {
   public class ModuleSales
   {
-    private int coalPrice { set; get; } = 15;
+    private int coalPrice { set; get; } = 20;
     private int ironPrice { get; set; } = 35;
     private int goldPrice { get; set; } = 150;
 
