@@ -18,10 +18,11 @@ namespace UI.Clicker
       cartCapacityUI.setMaxCapacity(max_cart_capacity);
     }
 
-    public void resourceMined(ResourceType resource_type, int amount, int total)
+    public void resourceMined(ResourceType resource_type, int amount, int total, bool is_helper)
     {
       resourcesBalance.setResourceBalance(resource_type, total);
-      resourcePopupSpawner.spawnPrefab(resource_type, amount);
+      if (!is_helper)
+        resourcePopupSpawner.spawnPrefab(resource_type, amount);
     }
 
     public void setCartCapacity(int cur_amount)

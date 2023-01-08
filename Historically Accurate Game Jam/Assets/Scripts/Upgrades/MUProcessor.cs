@@ -8,7 +8,7 @@ namespace Upgrades
 
     public static void process(ClickerManager clicker_manager)
     {
-      foreach (UpgradeBase upgrade in ModulesCommon.ModuleUpgrade.miningUpgrades)
+      foreach (UpgradeBase upgrade in ModulesCommon.ModuleUpgrade.upgrades)
       {
         int level = player.getBonusLevel(upgrade);
         switch (upgrade)
@@ -27,6 +27,10 @@ namespace Upgrades
             break;
           case MU_DoubleMineChance double_mine_chance:
             clicker_manager.addDoubleChanceBonus(double_mine_chance.resourceTypes, level, double_mine_chance.modifyBonus);
+            break;
+          case MU_Helper helper:
+            if (player.hasHelper)
+              clicker_manager.setHelperMineSeconds(helper.mineSeconds);
             break;
         }
       }

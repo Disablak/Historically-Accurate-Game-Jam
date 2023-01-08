@@ -1,4 +1,7 @@
-﻿namespace Upgrades
+﻿using System;
+using Core;
+
+namespace Upgrades
 {
   public abstract class UpgradeBase
   {
@@ -32,5 +35,7 @@
     }
 
     public abstract string getDescriptionString(int level);
+
+    public virtual ResourceType[] getAffectedResources() => Array.Empty<ResourceType>();
   }
 }

@@ -16,7 +16,7 @@ namespace UI.Hub
 
     private void Start()
     {
-      var upgrades = is_left ? ModulesCommon.ModuleUpgrade.miningUpgrades.Take( COUNT_IN_COLON ) : ModulesCommon.ModuleUpgrade.miningUpgrades.Skip( COUNT_IN_COLON );
+      var upgrades = is_left ? ModulesCommon.ModuleUpgrade.upgrades.Take( COUNT_IN_COLON ) : ModulesCommon.ModuleUpgrade.upgrades.Skip( COUNT_IN_COLON );
       foreach (UpgradeBase upgrade in upgrades)
       {
         UpgradeButton upgrade_button = Instantiate(upgradePrefab, containerTransform.transform).GetComponent<UpgradeButton>();

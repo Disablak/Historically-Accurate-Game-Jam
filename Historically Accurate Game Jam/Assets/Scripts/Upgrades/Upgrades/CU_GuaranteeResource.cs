@@ -1,11 +1,11 @@
 ﻿namespace Upgrades
 {
-  public class KU_GuaranteeResource : UpgradeBase
+  public class CU_GuaranteeResource : UpgradeBase
   {
     public int[] percentByLevel;
 
 
-    public KU_GuaranteeResource(int max_level, int[] diamond_price, int[] money_price)
+    public CU_GuaranteeResource(int max_level, int[] diamond_price, int[] money_price)
         : base(max_level, diamond_price, money_price)
     {
     }
