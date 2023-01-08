@@ -771,7 +771,7 @@ MonoBehaviour:
   PlayerAltitudeToBeConsideredCrushed: -2
   testValue: 0
   distanceToSplinePointThisFrame: 0
-  directionToSplinePointThisFrame: {x: 0, y: 0, z: 0}
+  directionToSplinePoint: {x: 0, y: 0, z: 0}
 --- !u!4 &1169629714
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169629711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.08, z: 0}
+  m_LocalPosition: {x: 0, y: 4.39, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1018,38 +1018,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1123334243850006740, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334243878384181, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334243993084075, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334244135809674, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334244202056682, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334244416385804, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334244416385805, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334244619456326, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 1123334245292719402, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1097,18 +1065,6 @@ PrefabInstance:
     - target: {fileID: 1123334245292719413, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
       propertyPath: m_Name
       value: CaveScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334245373181305, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334245580145074, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123334245723888557, guid: 1839b7ab9079e4055b17f23a12f8a760, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
