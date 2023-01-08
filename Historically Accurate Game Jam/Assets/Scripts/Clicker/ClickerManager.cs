@@ -135,7 +135,7 @@ public class ClickerManager : MonoBehaviour
   {
     ClickableResourceScriptableObject settings = is_bonus ? bonusResourceValueChanceSettings : defaultResourceValueChanceSettings;
     int random_value = Random.Range(0, 100);
-    KeyValuePair<ResourceType, ResourceValueChance> resource = settings.getResourceValueChanceWithType().LastOrDefault(x => x.Value.randomRange.minInclusive <= random_value);
+    KeyValuePair<ResourceType, ResourceValueChance> resource = settings.getResourceValueChanceWithType().LastOrDefault(x => x.Value.randomRange.minInclusive <= random_value && x.Value.randomRange.maxExclusive > random_value);
     if (resource.Key == ResourceType.NONE)
       resource = settings.getResourceValueChanceWithType().First();
 

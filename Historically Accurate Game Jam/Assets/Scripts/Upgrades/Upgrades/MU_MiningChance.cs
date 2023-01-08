@@ -29,7 +29,7 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      return $"Upgrades a chance to get {resourceTypes.toString()} by {getBonusChanceForLevel(level)}";
+      return $"Upgrades a chance to get resources by {getBonusChanceForLevel(level)}";
     }
 
     public override ResourceType[] getAffectedResources()
