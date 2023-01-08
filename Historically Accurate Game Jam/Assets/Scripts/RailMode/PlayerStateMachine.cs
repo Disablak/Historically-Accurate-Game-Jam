@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
@@ -15,6 +16,7 @@ namespace DefaultNamespace
         private FlyingState _flyingState;
         private ObstacleDetectionState _obstacleDetectionState;
         private List<SplineContainer> finishSplines;
+        private bool crushedThisFrame = false;
 
 
         private void Awake()
@@ -61,6 +63,11 @@ namespace DefaultNamespace
 
         public void ActivateCrushedState()
         {
+            if (crushedThisFrame)
+                return;
+
+            crushedThisFrame = true;
+
             ModulesCommon.ModuleCart.tryLoseResources(out _);
             CrushAudio.Stop();
             CrushAudio.Play();
@@ -77,6 +84,11 @@ namespace DefaultNamespace
             ModulesCommon.loadNextScene();
 
             Debug.Log("Level completed");
+        }
+
+        private void Update()
+        {
+            crushedThisFrame = false;
         }
     }
 }
