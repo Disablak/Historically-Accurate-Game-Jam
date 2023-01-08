@@ -49,7 +49,7 @@ namespace DefaultNamespace
                 || Input.GetMouseButtonDown(0)
                 || Input.GetMouseButtonDown(1)
                 || Input.GetMouseButtonDown(2)
-                || Input.GetTouch(0).phase == TouchPhase.Began)
+                || (Input.touchCount > 1 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 JumpAudio.Stop();
                 JumpAudio.time = 0.6f;
