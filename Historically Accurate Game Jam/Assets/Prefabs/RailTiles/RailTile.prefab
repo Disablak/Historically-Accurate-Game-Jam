@@ -578,7 +578,7 @@ MonoBehaviour:
           z: 0.51144606
           w: -0.48828593
     - Position:
-        x: 65.19
+        x: 65
         y: 0
         z: 0
       TangentIn:
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff74d71f94a1493e9e7c64f3d30584d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileWidth: 16
+  TileWidth: 65
   RailRoads:
   - {fileID: 6501782647481170638}
   NonCombinableTiles: []
