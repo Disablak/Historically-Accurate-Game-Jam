@@ -27,9 +27,10 @@ public class ClickerManager : MonoBehaviour
   [Header("References")] [SerializeField]
   private Object clickableBonusPrefab;
 
-  [SerializeField] private Object    clickableResourcePrefab;
-  [SerializeField] private Transform resourcePosition;
-  [SerializeField] private ClickerUI clickerUI;
+  [SerializeField] private Object              clickableResourcePrefab;
+  [SerializeField] private Transform           resourcePosition;
+  [SerializeField] private ClickerUI           clickerUI;
+  [SerializeField] private ClickerSoundManager clickerSoundManager;
 
   [Header("Settings")]
   [SerializeField] private int   secondsToMine;
@@ -96,9 +97,11 @@ public class ClickerManager : MonoBehaviour
     _bonus_spawn_bounds.Expand(_bonus_spawn_bounds.size * -0.3f);
 
     timerEnding += clickerUI.timerEnding;
+    timerEnding += clickerSoundManager.playTimer;
     gameEnded += clickerUI.gameEnded;
     gameEnded += endClicker;
     resourceMined += clickerUI.resourceMined;
+    resourceMined += clickerSoundManager.playMinedSound;
     cartFilled += clickerUI.setCartCapacity;
 
     _is_playable = true;

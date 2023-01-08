@@ -152,6 +152,7 @@ Transform:
   - {fileID: 1747547964253569220}
   - {fileID: 1747547963947370284}
   - {fileID: 1747547964192929508}
+  - {fileID: 1747547964003063469}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,6 +172,7 @@ MonoBehaviour:
   clickableResourcePrefab: {fileID: 1176395082403746217, guid: 3e53cf8fa5c8b164a9a0bf23968d045e, type: 3}
   resourcePosition: {fileID: 371668464}
   clickerUI: {fileID: 1752048148639813248}
+  clickerSoundManager: {fileID: 1747547964003063468}
   secondsToMine: 20
   timeRunningOutSeconds: 10
   cartCapacity: 100
@@ -1295,4 +1297,81 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4726375450494525708, guid: 02f1ab47aff1a48479ea11980455966f, type: 3}
   m_PrefabInstance: {fileID: 6473921110157043232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8040527245214055516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1747547963143441714}
+    m_Modifications:
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634871016294279927, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+      propertyPath: m_Name
+      value: ClickerSoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+--- !u!114 &1747547964003063468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8634871016294279920, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+  m_PrefabInstance: {fileID: 8040527245214055516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acee433a47db93d46bae11ec1bf6ce75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1747547964003063469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8634871016294279921, guid: 1749e16c32ae3fa49a0ed72ecd83eee8, type: 3}
+  m_PrefabInstance: {fileID: 8040527245214055516}
   m_PrefabAsset: {fileID: 0}

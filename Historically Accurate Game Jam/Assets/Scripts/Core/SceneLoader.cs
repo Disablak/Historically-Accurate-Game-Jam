@@ -6,11 +6,11 @@ namespace Core
 {
   public class SceneLoader : MonoBehaviour
   {
-    private const int HUB_SCENE_ID     = 0;
-    private const int CLICKER_SCENE_ID = 1;
-    private const int CART_SCENE_ID    = 2;
+    public const int HUB_SCENE_ID     = 0;
+    public const int CLICKER_SCENE_ID = 1;
+    public const int CART_SCENE_ID    = 2;
 
-    private int curScene { get; set; } = 0;
+    public int curScene { get; private set; } = 0;
 
     private void Awake()
     {
@@ -23,14 +23,15 @@ namespace Core
       curScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void loadNextScene()
+    public int loadNextScene()
     {
-      if (curScene == CLICKER_SCENE_ID)
+      if (curScene == CART_SCENE_ID)
         curScene = HUB_SCENE_ID;
       else
         ++curScene;
 
       SceneManager.LoadScene(curScene);
+      return curScene;
     }
   }
 }
