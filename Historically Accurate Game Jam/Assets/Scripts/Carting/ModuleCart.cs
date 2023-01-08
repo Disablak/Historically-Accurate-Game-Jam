@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core;
 
 namespace Carting
@@ -10,6 +11,7 @@ namespace Carting
     private Dictionary<ResourceType, int> startResourcesCount { get; set; } = new Dictionary<ResourceType, int>();
 
     private int resourcesRemainedPercent { get; set; }
+    public Action<int> on_change_penalty = delegate( int i ) {  };
 
     public int guaranteeResources { get; set; } = 0;
 
@@ -49,6 +51,7 @@ namespace Carting
       }
 
       resourcesRemainedPercent -= lose_percent;
+      on_change_penalty?.Invoke( 100 - resourcesRemainedPercent );
       return true;
     }
 
