@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Splines;
 using SplineUtility = UnityEngine.Splines.SplineUtility;
 
@@ -20,9 +22,11 @@ namespace DefaultNamespace
 
         public int testValue;
         public float distanceToSplinePointThisFrame;
-        public Vector3 directionToSplinePointThisFrame;
+        [FormerlySerializedAs("directionToSplinePointThisFrame")]
+        public Vector3 directionToSplinePoint;
 
         private PlayerStateMachine machine;
+        private Vector3 playerPositionLastFrame;
 
 
         public void SetStateMachine(PlayerStateMachine machine)
@@ -46,31 +50,48 @@ namespace DefaultNamespace
             MovementDirection += GravityDirection * Time.deltaTime;
             transform.position += MovementDirection * Time.deltaTime;
 
-            foreach (SplineContainer splineContainer in Rails)
+
+            var nearestSplineContainer = Rails.OrderBy(splineContainer =>
             {
                 Vector3 comparisonLocalPoint = splineContainer.transform.InverseTransformPoint(transform.position);
-
                 float distanceToSplinePoint = SplineUtility.GetNearestPoint(
                     splineContainer.Spline,
                     comparisonLocalPoint,
-                    out float3 resultLocalPoint,
-                    out float normalizedDistance
+                    out float3 _,
+                    out float _
                     , SplineUtility.PickResolutionMax
                     , 10);
 
-                Vector3 resultWorldPoint = splineContainer.transform.TransformPoint(resultLocalPoint);
-                float distanceFromStartToEnd = (StartedFlyingFromPoint - resultWorldPoint).magnitude;
+                return distanceToSplinePoint;
+            }).First();
 
-                directionToSplinePointThisFrame = transform.position - resultWorldPoint;
-                distanceToSplinePointThisFrame = distanceToSplinePoint;
+            Vector3 comparisonLocalPoint = nearestSplineContainer.transform.InverseTransformPoint(transform.position);
 
-                if ((distanceToSplinePoint <= DistanceToRailToBeAttachedTo
-                     || distanceToSplinePoint <= MovementDirection.magnitude)
-                    && distanceFromStartToEnd >= DistanceFromStartToBeAllowedToAttach)
-                {
-                    machine.ActivateRailingState(splineContainer, normalizedDistance);
-                    return;
-                }
+            float distanceToSplinePoint = SplineUtility.GetNearestPoint(
+                nearestSplineContainer.Spline,
+                comparisonLocalPoint,
+                out float3 resultLocalPoint,
+                out float normalizedDistance
+                , SplineUtility.PickResolutionMax
+                , 10);
+
+            Vector3 resultWorldPoint = nearestSplineContainer.transform.TransformPoint(resultLocalPoint);
+            float distanceFromStartToEnd = (StartedFlyingFromPoint - resultWorldPoint).magnitude;
+
+            directionToSplinePoint = transform.position - resultWorldPoint;
+            distanceToSplinePointThisFrame = distanceToSplinePoint;
+
+            bool fliedThroughSpline =
+                (resultWorldPoint - playerPositionLastFrame).y < 0 && (resultWorldPoint - transform.position).y > 0;
+
+            playerPositionLastFrame = transform.position;
+
+            if ((distanceToSplinePoint <= DistanceToRailToBeAttachedTo
+                 && distanceFromStartToEnd >= DistanceFromStartToBeAllowedToAttach)
+                || fliedThroughSpline)
+            {
+                machine.ActivateRailingState(nearestSplineContainer, normalizedDistance);
+                return;
             }
 
             if (transform.position.y >= PlayerAltitudeToBeConsideredCrushed)
