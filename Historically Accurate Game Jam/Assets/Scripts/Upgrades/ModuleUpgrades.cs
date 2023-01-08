@@ -23,6 +23,7 @@ namespace Upgrades
       registerMiningUpgrade(new MU_PermanentResource(ResourceTypeHelper.allValues.Except( new[] {ResourceType.DIAMOND} ).ToArray(), new []{ 5, 5, 5 },new []{ 500, 1000, 2000}, Array.Empty<int>() ) );
       registerMiningUpgrade(new MU_MiningChance(new [] {ResourceType.IRON, ResourceType.GOLD}, new int[]{ 5, 5, 5 }, true, new []{ 500, 1000, 2000}, Array.Empty<int>()));
       registerMiningUpgrade(new MU_DoubleMineChance(new [] {ResourceType.COAL, ResourceType.IRON, ResourceType.GOLD}, new []{ 2, 5, 10 }, true, Array.Empty<int>(), new []{ 1000, 2000, 3000 }));
+      registerMiningUpgrade(new MU_Helper(0.2f, Array.Empty<int>(), Array.Empty<int>()));
     }
 
     private void registerMiningUpgrade(UpgradeBase upgrade)

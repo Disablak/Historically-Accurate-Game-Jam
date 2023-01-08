@@ -42,10 +42,10 @@ public class ClickerManager : MonoBehaviour
   private Dictionary<ResourceType, int> doubleMinedChance         { get; set; } = new Dictionary<ResourceType, int>();
   private Dictionary<ResourceType, int> doubleMinedChanceForBonus { get; set; } = new Dictionary<ResourceType, int>();
 
-  private bool hasHelper { get; set; }
+  private float helperMineSeconds { get; set; } = -1;
 
-  private event Action<ResourceType, int, int> resourceMined; 
-  private event Action<int>                    cartFilled;
+  private event Action<ResourceType, int, int, bool> resourceMined; 
+  private event Action<int>                          cartFilled;
 
   private int curCartFilled
   {
@@ -100,15 +100,13 @@ public class ClickerManager : MonoBehaviour
     resourceMined += clickerUI.resourceMined;
     cartFilled += clickerUI.setCartCapacity;
 
-    startAll();
-
     _is_playable = true;
+
+    startAll();
   }
 
   private void onClicked(bool is_bonus)
   {
-    
-
     if (_is_playable)
       mineRandomResource(is_bonus);
   }
@@ -128,7 +126,7 @@ public class ClickerManager : MonoBehaviour
     cartFilled?.Invoke(curCartFilled);
   }
 
-  private void mineRandomResource(bool is_bonus)
+  private void mineRandomResource(bool is_bonus = false, bool is_helper = false)
   {
     ClickableResourceScriptableObject settings = is_bonus ? bonusResourceValueChanceSettings : defaultResourceValueChanceSettings;
     int random_value = Random.Range(0, 100);
@@ -142,19 +140,20 @@ public class ClickerManager : MonoBehaviour
       resource.Value.amount *= 2;
 
     tryPutToCartWithEndGame(resource.Value.amount, out int filled);
-    _clickable_resource.tween();
-    setResourceMined(resource.Key, filled);
+    if(!is_helper)
+      _clickable_resource.tween();
+    setResourceMined(resource.Key, filled, is_helper);
   }
 
-  private void setResourceMined(ResourceType resource_type, int resource_count)
+  private void setResourceMined(ResourceType resource_type, int resource_count, bool is_helper)
   {
     resourcesMined[resource_type] += resource_count;
-    resourceMined?.Invoke(resource_type, resource_count, resourcesMined[resource_type]);
+    resourceMined?.Invoke(resource_type, resource_count, resourcesMined[resource_type], is_helper);
   }
 
   private IEnumerator spawnBonusCoroutine()
   {
-    while (true)
+    while (_is_playable)
     {
       float wait_seconds = Random.Range(3.0f, 10.0f);
       Debug.Log(wait_seconds);
@@ -172,6 +171,15 @@ public class ClickerManager : MonoBehaviour
     }
   }
 
+  private IEnumerator helperCoroutine()
+  {
+    while (_is_playable)
+    {
+      yield return new WaitForSeconds(helperMineSeconds);
+      mineRandomResource(is_helper: true);
+    }
+  }
+
   private void OnDisable()
   {
     stopAll();
@@ -181,6 +189,9 @@ public class ClickerManager : MonoBehaviour
   {
     StartCoroutine(spawnBonusCoroutine());
     StartCoroutine(timerCoroutine());
+
+    if (helperMineSeconds > 0)
+      StartCoroutine(helperCoroutine());
   }
 
   private void stopAll()
@@ -239,6 +250,7 @@ public class ClickerManager : MonoBehaviour
         doubleMinedChanceForBonus[resource_type] += amount;
     }
   }
+
+  public void setHelperMineSeconds(float mine_seconds) => helperMineSeconds = mine_seconds;
 #endregion
-  
 }

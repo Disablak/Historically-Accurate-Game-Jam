@@ -28,6 +28,9 @@ namespace Upgrades
           case MU_DoubleMineChance double_mine_chance:
             clicker_manager.addDoubleChanceBonus(double_mine_chance.resourceTypes, level, double_mine_chance.modifyBonus);
             break;
+          case MU_Helper helper:
+            clicker_manager.setHelperMineSeconds(helper.mineSeconds);
+            break;
         }
       }
     }

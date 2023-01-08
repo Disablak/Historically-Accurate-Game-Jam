@@ -28,10 +28,12 @@ namespace Core
       }
     }
 
-    public PlayerUpgrades playerUpgrades { get; set; } = new PlayerUpgrades();
+    public PlayerUpgrades playerUpgrades { get; private set; } = new PlayerUpgrades();
 
     public event Action<int> diamondBalanceUpdated;
     public event Action<int> moneyBalanceUpdated;
+
+    public bool hasHelper { get; private set; }
 
 
     public bool trySpendMoney(int amount)
