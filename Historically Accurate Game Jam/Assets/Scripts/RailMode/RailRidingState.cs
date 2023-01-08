@@ -48,6 +48,7 @@ namespace DefaultNamespace
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 JumpAudio.Stop();
+                JumpAudio.time = 0.6f;
                 JumpAudio.Play();
                 GotoFlyingState(AdditionalJumpDirection);
             }
