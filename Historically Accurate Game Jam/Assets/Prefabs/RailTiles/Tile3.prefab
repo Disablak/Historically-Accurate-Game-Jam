@@ -89,8 +89,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 19.999954, y: -0.49211645, z: 0}
-    m_Extent: {x: 20.035717, y: 2.0088964, z: 0}
+    m_Center: {x: 19.999956, y: -0.6884661, z: 0}
+    m_Extent: {x: 20.035719, y: 1.8130395, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &6122597864362849487
 MonoBehaviour:
@@ -187,17 +187,17 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 26.826942, y: 1.3089244, z: 0}
+    - position: {x: 26.447464, y: 0.29698014, z: 0}
       leftTangent: {x: -0.6821728, y: -0.10891807, z: 0.83556336}
-      rightTangent: {x: 0.88513184, y: 0.14132321, z: -1.0841593}
+      rightTangent: {x: 0.88513184, y: 0.14132315, z: -1.0841593}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 30.468431, y: -0.06338966, z: 0}
-      leftTangent: {x: -2.3100948, y: -0.2974888, z: 1.6045425}
-      rightTangent: {x: 2.441759, y: 0.31444448, z: -1.6959951}
+    - position: {x: 30.76358, y: -0.23204711, z: 0}
+      leftTangent: {x: -2.3100948, y: -0.29748878, z: 1.6045425}
+      rightTangent: {x: 2.4417229, y: 0.31444448, z: -1.6959951}
       mode: 1
       height: 1
       spriteIndex: 0
@@ -268,7 +268,6 @@ Transform:
   - {fileID: 6513298898343074002}
   - {fileID: 5582192178732754379}
   - {fileID: 873493465442608364}
-  - {fileID: 834183640433397065}
   - {fileID: 506389336060460566}
   - {fileID: 6342979156982166258}
   m_Father: {fileID: 0}
@@ -472,41 +471,41 @@ MonoBehaviour:
           z: 0.432735
           w: -0.55923206
     - Position:
-        x: 26.76
-        y: 1.48
+        x: 26.58
+        y: 0.57
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -1.0841593
+        z: -1.1016353
       TangentOut:
         x: 0
         y: 0
-        z: 1.0841593
+        z: 1.1016353
       Rotation:
         value:
-          x: -0.5588025
-          y: 0.4332895
-          z: -0.4332895
-          w: 0.5588025
+          x: 0.5134359
+          y: -0.486193
+          z: 0.4861936
+          w: -0.51343536
     - Position:
-        x: 30.58
-        y: 0.13
+        x: 30.980001
+        y: -0.06
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -2.1901848
+        z: -2.090215
       TangentOut:
         x: 0
         y: 0
-        z: 2.1901848
+        z: 2.090215
       Rotation:
         value:
-          x: 0.55926746
-          y: -0.43268913
-          z: 0.43268916
-          w: -0.55926746
+          x: 0.53355974
+          y: -0.46401942
+          z: 0.4640207
+          w: -0.53355867
     - Position:
         x: 35.12
         y: -2.1
@@ -639,80 +638,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
   m_PrefabInstance: {fileID: 4198040972990921495}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4453682014075605682
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6513298897387419965}
-    m_Modifications:
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.813604
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.2499657
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 34.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9783011
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.2051817
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.012243584
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0260313
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -23.709
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.831
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.874
-      objectReference: {fileID: 0}
-    - target: {fileID: 8961031655782434261, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-      propertyPath: m_Name
-      value: WoodTriangle (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
---- !u!4 &834183640433397065 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3917346247005724667, guid: e159b283f681adf499ea86cbd79900d2, type: 3}
-  m_PrefabInstance: {fileID: 4453682014075605682}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7261221505893283923
 PrefabInstance:
