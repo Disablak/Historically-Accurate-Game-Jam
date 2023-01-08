@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Carting;
 using Clicker;
 using Core;
 using UI.Clicker;
@@ -213,7 +214,16 @@ public class ClickerManager : MonoBehaviour
   {
     _is_playable = false;
     ModulesCommon.ModulePlayer.resourcesMined = resourcesMined;
+    ModulesCommon.ModuleCart.setResourcesRemained(resourcesMined);
+    ModulesCommon.ModuleCart.loseResources();
     stopAll();
+    StartCoroutine(loadNextSceneCoroutine());
+  }
+
+  private IEnumerator loadNextSceneCoroutine()
+  {
+    yield return new WaitForSeconds(3f);
+    ModulesCommon.ModuleCart.endCarting();
     ModulesCommon.loadNextScene();
   }
 

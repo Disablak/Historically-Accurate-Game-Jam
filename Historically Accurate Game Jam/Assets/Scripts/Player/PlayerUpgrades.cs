@@ -18,6 +18,9 @@ namespace Upgrades
         upgradeLevels[upgrade_base] = 1;
       else
         ++upgradeLevels[upgrade_base];
+
+      if (upgrade_base is AirshipUpgrade)
+        ModulesCommon.airshipBought();
     }
 
     public int getBonusLevel(UpgradeBase upgrade_base)

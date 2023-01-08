@@ -13,11 +13,6 @@ public class SalesWindow : MonoBehaviour
   [SerializeField] private TMP_Text windowText;
 
 
-  private void Awake()
-  {
-    gameObject.SetActive(false);
-  }
-
   public void init(SaleResult sale_result)
   {
     string text = string.Empty;

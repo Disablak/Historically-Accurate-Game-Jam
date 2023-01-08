@@ -31,5 +31,10 @@ namespace Upgrades
     {
       return $"Upgrades a chance to get {resourceTypes.toString()} by {getBonusChanceForLevel(level)}";
     }
+
+    public override ResourceType[] getAffectedResources()
+    {
+      return resourceTypes;
+    }
   }
 }

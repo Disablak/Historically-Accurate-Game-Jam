@@ -8,7 +8,7 @@ namespace Upgrades
 
     public static void process(ClickerManager clicker_manager)
     {
-      foreach (UpgradeBase upgrade in ModulesCommon.ModuleUpgrade.miningUpgrades)
+      foreach (UpgradeBase upgrade in ModulesCommon.ModuleUpgrade.upgrades)
       {
         int level = player.getBonusLevel(upgrade);
         switch (upgrade)

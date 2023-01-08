@@ -28,5 +28,10 @@ namespace Upgrades
     {
       return $"Adds {getAmountForLevel(level)} of {resourceTypes.toString()} every time you get it";
     }
+
+    public override ResourceType[] getAffectedResources()
+    {
+      return resourceTypes;
+    }
   }
 }

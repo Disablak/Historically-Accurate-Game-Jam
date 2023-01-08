@@ -32,5 +32,10 @@ namespace Upgrades
       else
         return $"Upgrades a chance to get double {resourceTypes.toString()} by {getDoubleChanceForLevel(level)}";
     }
+
+    public override ResourceType[] getAffectedResources()
+    {
+      return resourceTypes;
+    }
   }
 }
