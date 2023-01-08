@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using Core;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -11,6 +13,7 @@ namespace DefaultNamespace
         private RailRidingState _ridingState;
         private FlyingState _flyingState;
         private ObstacleDetectionState _obstacleDetectionState;
+        private List<SplineContainer> finishSplines;
 
 
         private void Awake()
@@ -27,6 +30,7 @@ namespace DefaultNamespace
         private void Start()
         {
             GetComponent<FlyingState>().Rails = tilesBuilder.GetRailRoadSplinesFromInstances().ToList();
+            finishSplines = tilesBuilder.GetSplinesFromLastTile().ToList();
         }
 
         public void ActivateFlyingState(Vector3 PlayerPosition, Vector3 PlayerDirection)
@@ -39,6 +43,12 @@ namespace DefaultNamespace
 
         public void ActivateRailingState(SplineContainer spline, float normalizedDistanceOnSpline)
         {
+            if (finishSplines.Contains(spline))
+            {
+                ActivateFinishState();
+                return;
+            }
+
             _ridingState.EnableState(spline, normalizedDistanceOnSpline);
 
             _flyingState.enabled = false;
@@ -48,6 +58,14 @@ namespace DefaultNamespace
         public void ActivateCrushedState()
         {
             ActivateRailingState(_ridingState.spline, 0.0f);
+        }
+
+        public void ActivateFinishState()
+        {
+            _flyingState.enabled = false;
+            _ridingState.enabled = false;
+            _obstacleDetectionState.enabled = false;
+            Debug.Log("Level completed");
         }
     }
 }

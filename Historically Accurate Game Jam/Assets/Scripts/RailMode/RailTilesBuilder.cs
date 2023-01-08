@@ -57,5 +57,8 @@ namespace DefaultNamespace
 
         public IEnumerable<SplineContainer> GetRailRoadSplinesFromInstances()
             => TilesInstances.SelectMany(tile => tile.GetAllRoadSplines());
+
+        public IEnumerable<SplineContainer> GetSplinesFromLastTile()
+            => TilesInstances.Last().RailRoads;
     }
 }

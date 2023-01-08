@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052c7abd1e7841f19858b57d66133dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DesiredLevelWidth: 200
+  DesiredLevelWidth: 30
   SpawnStartPosition: {x: 0, y: 0, z: 0}
   TilesPrefabs:
   - {fileID: 6501782647699792169, guid: 4f06b21ef71a447ef94713feffb48604, type: 3}
