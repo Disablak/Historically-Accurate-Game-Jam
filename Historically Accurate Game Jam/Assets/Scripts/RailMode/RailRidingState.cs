@@ -9,6 +9,7 @@ namespace DefaultNamespace
     {
         public SplineContainer spline;
         public Vector3 AdditionalJumpDirection;
+        public AudioSource JumpAudio;
 
         Vector3 GravityDirection = Vector3.down;
 
@@ -45,7 +46,12 @@ namespace DefaultNamespace
             playerOnSplineDistance += currentPlayerSpeed;
 
             if (Input.GetKeyDown(KeyCode.Space))
+            {
+                JumpAudio.Stop();
+                JumpAudio.time = 0.6f;
+                JumpAudio.Play();
                 GotoFlyingState(AdditionalJumpDirection);
+            }
             else if (playerOnSplinePositionNormalized is > 1.0f or < 0.0f)
                 GotoFlyingState(Vector3.zero);
 
