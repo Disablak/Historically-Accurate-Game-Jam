@@ -215,7 +215,6 @@ public class ClickerManager : MonoBehaviour
     _is_playable = false;
     ModulesCommon.ModulePlayer.resourcesMined = resourcesMined;
     ModulesCommon.ModuleCart.setResourcesRemained(resourcesMined);
-    ModulesCommon.ModuleCart.loseResources();
     stopAll();
     StartCoroutine(loadNextSceneCoroutine());
   }
