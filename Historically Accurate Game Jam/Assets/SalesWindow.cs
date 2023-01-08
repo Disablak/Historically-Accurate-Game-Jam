@@ -10,7 +10,8 @@ using UnityEngine;
 
 public class SalesWindow : MonoBehaviour
 {
-  [SerializeField] private TMP_Text windowText;
+  [SerializeField] private TMP_Text    windowText;
+  [SerializeField] private AudioSource audioSource;
 
 
   public void init(SaleResult sale_result)
@@ -26,6 +27,7 @@ public class SalesWindow : MonoBehaviour
 
     windowText.SetText(text);
     gameObject.SetActive(true);
+    audioSource.Play();
   }
 
   public void closeWindow()

@@ -13,12 +13,14 @@ namespace Core
     public static ModuleSales    ModuleSales   { get; set; } = new ModuleSales();
     public static ModuleCart     ModuleCart    { get; set; } = new ModuleCart();
     public static SceneLoader    SceneLoader   { get; set; }
+    public static MusicManager   musicManager  { get; set; }
 
     public static event Action onAirshipBought; 
 
     public static void loadNextScene()
     {
-      SceneLoader.loadNextScene();
+      int cur_scene = SceneLoader.loadNextScene();
+      musicManager.playSceneMusic(cur_scene);
     }
 
     public static void airshipBought()

@@ -13,6 +13,7 @@ namespace UI.Hub
     [SerializeField] private TMP_Text         descriptionText;
     [SerializeField] private Slider           progressBar;
     [SerializeField] private PriceContainerUI priceContainer;
+    [SerializeField] private AudioSource      audioSource;
 
     private UpgradeBase upgrade { get; set; }
 
@@ -82,6 +83,7 @@ namespace UI.Hub
         return;
 
       playerUpgrades.upgrade(upgrade);
+      audioSource.Play();
       setValues(++curLevel);
     }
   }
