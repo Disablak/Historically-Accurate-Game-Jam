@@ -26,7 +26,7 @@ namespace Upgrades
 
     public override string getDescriptionString(int level)
     {
-      return $"Adds {getAmountForLevel(level)} of {resourceTypes.toString()} every time you get it";
+      return $"Adds {getAmountForLevel(level)} resources every time you get it";
     }
 
     public override ResourceType[] getAffectedResources()

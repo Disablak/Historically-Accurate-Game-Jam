@@ -28,9 +28,9 @@ namespace Upgrades
     public override string getDescriptionString(int level)
     {
       if (level == 1)
-        return $"Adds a {getDoubleChanceForLevel(level)}% chance to get double {resourceTypes.toString()}";
+        return $"Adds a {getDoubleChanceForLevel(level)}% chance to get double resources";
       else
-        return $"Upgrades a chance to get double {resourceTypes.toString()} by {getDoubleChanceForLevel(level)}";
+        return $"Upgrades a chance to get double resources by {getDoubleChanceForLevel(level)}";
     }
 
     public override ResourceType[] getAffectedResources()

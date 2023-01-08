@@ -500,6 +500,10 @@ PrefabInstance:
       propertyPath: m_ChildAlignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1685391174175154138, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2016250120182826679, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -508,6 +512,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 7094584983945738844, guid: c07149338eda34aef95c193a833ea395, type: 2}
+    - target: {fileID: 2095642518880786103, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2775679536351055314, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -814,6 +822,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6848784516640530001, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234549784398795512, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993118278727928921, guid: 67215a10972cb3a4e96d5ecb115b58cf, type: 3}
+      propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
