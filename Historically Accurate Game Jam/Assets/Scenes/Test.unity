@@ -780,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169629711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.39, z: 0}
+  m_LocalPosition: {x: 2, y: 4.39, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -934,14 +934,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052c7abd1e7841f19858b57d66133dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DesiredLevelWidth: 30
+  DesiredLevelWidth: 70
   SpawnStartPosition: {x: 0, y: 0, z: 0}
   FinishTile: {fileID: 6513298897387419966, guid: 165cbfe4989af4bd597512b86fba184b, type: 3}
   TilesPrefabs:
+  - {fileID: 6832466397653274578, guid: 9465803588fde4400b3caf0174e11323, type: 3}
   - {fileID: 6501782647699792169, guid: 4f06b21ef71a447ef94713feffb48604, type: 3}
   - {fileID: 6513298897387419966, guid: 81d3fca6641ff46019bf86c971ae4048, type: 3}
-  - {fileID: 6832466397653274578, guid: 9465803588fde4400b3caf0174e11323, type: 3}
   - {fileID: 6513298897387419966, guid: 1672ccc62c0d9184c9840bf70b2b3138, type: 3}
+  - {fileID: 6513298897387419966, guid: 6f3a9069bf9d9714cb628cb2b8e4b92e, type: 3}
+  - {fileID: 6513298897387419966, guid: b0aa04acd68a1b148b6747e88b3e47c8, type: 3}
+  - {fileID: 6513298897387419966, guid: 991d96ca2af65b345961ccfa59593797, type: 3}
+  - {fileID: 6513298897387419966, guid: f27199afe51e55048a3a0285424877ae, type: 3}
   TilesInstances: []
 --- !u!4 &1227019621
 Transform:
