@@ -63,7 +63,7 @@ namespace DefaultNamespace
                                       splineTangent.normalized;
                 playerDirection += additionalJumpingDirection;
 
-                machine.ActivateFlyingState(pointOnSpline, playerDirection);
+                machine.ActivateFlyingState(playerOnSplinePositionNormalized, pointOnSpline, playerDirection);
             }
         }
 
