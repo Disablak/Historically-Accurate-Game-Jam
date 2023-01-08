@@ -1018,7 +1018,7 @@ MonoBehaviour:
   Rails: []
   DistanceToRailToBeAttachedTo: 0.1
   DistanceFromStartToBeAllowedToAttach: 0.2
-  PlayerAltitudeToBeConsideredCrushed: -2
+  PlayerAltitudeToBeConsideredCrushed: -5
   testValue: 0
   distanceToSplinePointThisFrame: 0
   directionToSplinePoint: {x: 0, y: 0, z: 0}
