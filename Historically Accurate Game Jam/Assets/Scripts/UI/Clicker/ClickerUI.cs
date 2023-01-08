@@ -35,9 +35,10 @@ namespace UI.Clicker
       timerUI.setTime(seconds_left);
     }
 
-    public void gameEnded()
+    public void gameEnded(bool is_ended_time)
     {
       endgameText.gameObject.SetActive(true);
+      endgameText.text = is_ended_time ? "Time is over" : "Cart is full";
       timerUI.finishPulsation();
     }
 
