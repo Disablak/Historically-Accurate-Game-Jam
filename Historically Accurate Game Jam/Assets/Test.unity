@@ -135,8 +135,10 @@ GameObject:
   - component: {fileID: 1169629713}
   - component: {fileID: 1169629712}
   - component: {fileID: 1169629715}
-  - component: {fileID: 1169629716}
-  - component: {fileID: 1169629717}
+  - component: {fileID: 1169629718}
+  - component: {fileID: 1169629719}
+  - component: {fileID: 1169629721}
+  - component: {fileID: 1169629720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -156,17 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae1092215134a588abba173e9b815ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RailRidingState: {fileID: 1169629715}
-  RailCrushState: {fileID: 1169629716}
   MovementDirection: {x: 0, y: 0, z: 0}
-  GravityDirection: {x: 0, y: -0.04, z: 0}
+  GravityDirection: {x: 0, y: -0.5, z: 0}
   StartedFlyingFromPoint: {x: 0, y: 0, z: 0}
-  Rails:
-  - {fileID: 0}
-  - {fileID: 0}
+  Rails: []
   DistanceToRailToBeAttachedTo: 0.1
   DistanceFromStartToBeAllowedToAttach: 0.1
   PlayerAltitudeToBeConsideredCrushed: -1
+  testValue: 0
   distanceToSplinePointThisFrame: 0
   directionToSplinePointThisFrame: {x: 0, y: 0, z: 0}
 --- !u!212 &1169629713
@@ -249,12 +248,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spline: {fileID: 0}
-  FlyingState: {fileID: 1169629712}
-  AdditionalJumpDirection: {x: 0, y: 7, z: 0}
-  gravityForceAcceleration: 0.1
+  AdditionalJumpDirection: {x: 0, y: 15, z: 0}
+  gravityForceAcceleration: 1
+  staticPlayerSpeed: 5
   playerOnSplineDistance: 0
   currentPlayerSpeed: 0
---- !u!114 &1169629716
+--- !u!114 &1169629718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,11 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1169629711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c626bff700724899b300c4a277b792cf, type: 3}
+  m_Script: {fileID: 11500000, guid: a91a973097b843ac891f331278f8dfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RailRidingState: {fileID: 1169629715}
---- !u!114 &1169629717
+--- !u!114 &1169629719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,10 +274,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 1169629711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790d4c3b8b7840f19546afc24ecfc2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: c203aaa537334878b3c4e6c8a4fa970e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilesBuilder: {fileID: 1227019620}
+  tilesBuilder: {fileID: 1227019620}
+--- !u!50 &1169629720
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169629711}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1169629721
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169629711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.6, y: 9.61}
+    newSize: {x: 9.6, y: 9.61}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.6, y: 9.61}
+  m_EdgeRadius: 0
 --- !u!1 &1227019619
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +461,7 @@ GameObject:
   - component: {fileID: 2145597113}
   - component: {fileID: 2145597112}
   - component: {fileID: 2145597111}
+  - component: {fileID: 2145597115}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -508,3 +579,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145597115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145597110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97e918459240c0bfdb2fec228acb13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interpolationSpeed: 0.1
+  target: {fileID: 1169629711}
