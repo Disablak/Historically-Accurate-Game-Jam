@@ -57,6 +57,7 @@ namespace DefaultNamespace
 
         public void ActivateCrushedState()
         {
+            ModulesCommon.ModuleCart.tryLoseResources(out _);
             ActivateRailingState(_ridingState.spline, 0.0f);
         }
 
@@ -65,6 +66,10 @@ namespace DefaultNamespace
             _flyingState.enabled = false;
             _ridingState.enabled = false;
             _obstacleDetectionState.enabled = false;
+            
+            ModulesCommon.ModuleCart.endCarting();
+            ModulesCommon.loadNextScene();
+            
             Debug.Log("Level completed");
         }
     }
