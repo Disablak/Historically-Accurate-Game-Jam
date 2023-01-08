@@ -15,10 +15,10 @@ namespace DefaultNamespace
         public float ShapeBodyBaseHeight = -1;
 
 
-        private void Awake()
+        [ContextMenu("SpawnShape")]
+        private void SpawnShape()
         {
-            foreach (SplineContainer splineContainer in SplineContainers)
-                SpawnShape(splineContainer);
+            SpawnShape(SplineContainers.First());
         }
 
         private void SpawnShape(SplineContainer splineContainer)
@@ -46,17 +46,17 @@ namespace DefaultNamespace
                 shapeSpline.SetLeftTangent(i, railKnot.TangentOut.WithoutYParameter());
                 shapeSpline.SetRightTangent(i, railKnot.TangentIn.WithoutYParameter());
             }
-
-            var firstPointWorldPosition = ShapeController.transform.TransformPoint(railSpline.First().Position);
-            var lastPointWorldPosition = ShapeController.transform.TransformPoint(railSpline.Last().Position);
-
-            firstPointWorldPosition.y = ShapeBodyBaseHeight;
-            lastPointWorldPosition.y = ShapeBodyBaseHeight;
-
-            shapeSpline.InsertPointAt(railSpline.Count,
-                ShapeController.transform.InverseTransformPoint(firstPointWorldPosition));
-            shapeSpline.InsertPointAt(railSpline.Count,
-                ShapeController.transform.InverseTransformPoint(lastPointWorldPosition));
+            //
+            // var firstPointWorldPosition = ShapeController.transform.TransformPoint(railSpline.First().Position);
+            // var lastPointWorldPosition = ShapeController.transform.TransformPoint(railSpline.Last().Position);
+            //
+            // firstPointWorldPosition.y = ShapeBodyBaseHeight;
+            // lastPointWorldPosition.y = ShapeBodyBaseHeight;
+            //
+            // shapeSpline.InsertPointAt(railSpline.Count,
+            //     ShapeController.transform.InverseTransformPoint(firstPointWorldPosition));
+            // shapeSpline.InsertPointAt(railSpline.Count,
+            //     ShapeController.transform.InverseTransformPoint(lastPointWorldPosition));
 
             ShapeController.splineDetail = 128;
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8752621809265697566}
   - component: {fileID: 9218773651996202780}
   m_Layer: 0
-  m_Name: Closed Sprite Shape
+  m_Name: Rail Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,9 +77,9 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 76b2ae5fb15a84e218b96518a8f053c4, type: 3}
+  m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 4695c51891be44e55881fa1068bbc565, type: 3}
+  - {fileID: 21300000, guid: b85bf599c8af544e8a4dba6363b3a9d9, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -89,8 +89,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.000313282, y: -0.00019598007, z: 0}
-    m_Extent: {x: 2.9781637, y: 1.6401432, z: 0}
+    m_Center: {x: 0.00024843216, y: -0.00000834465, z: 0}
+    m_Extent: {x: 2.3598604, y: 1.0199916, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &9218773651996202780
 MonoBehaviour:
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Spline:
-    m_IsOpenEnded: 0
+    m_IsOpenEnded: 1
     m_ControlPoints:
     - position: {x: -1, y: -1, z: 0}
       leftTangent: {x: 0.53597367, y: -0.00048214197, z: -0}
