@@ -64,8 +64,7 @@ namespace DefaultNamespace
                 directionToSplinePointThisFrame = transform.position - resultWorldPoint;
                 distanceToSplinePointThisFrame = distanceToSplinePoint;
 
-                if ((distanceToSplinePoint <= DistanceToRailToBeAttachedTo
-                     || distanceToSplinePoint <= MovementDirection.magnitude)
+                if (distanceToSplinePoint <= DistanceToRailToBeAttachedTo
                     && distanceFromStartToEnd >= DistanceFromStartToBeAllowedToAttach)
                 {
                     machine.ActivateRailingState(splineContainer, normalizedDistance);
