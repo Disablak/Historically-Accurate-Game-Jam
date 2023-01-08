@@ -43,7 +43,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -470,8 +470,8 @@ MonoBehaviour:
           z: 0.432735
           w: -0.55923206
     - Position:
-        x: 26.58
-        y: 0.57
+        x: 26.504002
+        y: 0.498
         z: 0
       TangentIn:
         x: -0
@@ -494,17 +494,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -2.090215
+        z: -2.134072
       TangentOut:
         x: 0
         y: 0
-        z: 2.090215
+        z: 2.134072
       Rotation:
         value:
-          x: 0.53355974
-          y: -0.46401942
-          z: 0.4640207
-          w: -0.53355867
+          x: 0.53890294
+          y: -0.45780316
+          z: 0.4578045
+          w: -0.53890175
     - Position:
         x: 35.12
         y: -2.1
